@@ -1,5 +1,16 @@
 # iac-riscv-cw-11
-# Instrcutions
+## Initial Approach
+
+- We began the project by **planning the tasks**, this included understanding the objectives of the task as a team as well as creating and delegating tasks. 
+- Once the tasks had been delegated, **machine code** which would implement the f1 light switch was created and checked by other memeber of the team.
+- 
+
+## Planning
+
+## Machine Code 
+
+Instructions:
+
 main:               
     
     addi t1 , zero , 0xff  //t1=11111111
@@ -19,7 +30,12 @@ mloop:
     bne  s0 , t1 , mloop  //if s0 does not equal to 11111111, back to mloop
     
     ret  //exit
-# Machine Code
+    
+Explaination:
+
+    
+Final Machine Code:
+
 0ff00313
 
 004000ef
@@ -33,3 +49,13 @@ mloop:
 fe641ce3
 
 00008067
+
+## Implementation
+
+Jump:
+
+Shift:
+
+Data Memory:
+
+##
