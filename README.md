@@ -25,9 +25,9 @@ mloop:
    
     slli s0 , s0 , 1  //first left shift s0 by 1 bit
     
-    addi s0 , s0 , 1  //then add s0 by 1
+    addi a0 , s0 , 1  //then add s0 by 1 and output it as a0
     
-    bne  s0 , t1 , mloop  //if s0 does not equal to 11111111, back to mloop
+    bne  a0 , t1 , mloop  //if a0 does not equal to 11111111, back to mloop
     
     ret  //exit
     
