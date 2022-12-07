@@ -15,37 +15,37 @@ main:
     
     addi t1 , zero , 0xff  //t1=11111111
     
-    JAL  ra , loop  //jump to the loop
+    JAL  ra , loop         //jump to the loop
        
 loop: 
     
-    addi a0 , zero, 0  //initialize a0=0
+    addi a0 , zero, 0      //initialize a0=0
     
-    addi zero, zero, 0  //NOP avoiding Data Hazard
+    addi zero, zero, 0     //NOP avoiding Data Hazard
     
-    addi zero, zero, 0  //NOP
+    addi zero, zero, 0     //NOP
 
 mloop:
    
-    slli a0 , a0 , 1  //first left shift a0 by 1 bit
+    slli a0 , a0 , 1       //first left shift a0 by 1 bit
     
-    addi zero, zero, 0  //NOP 
+    addi zero, zero, 0     //NOP 
     
-    addi zero, zero, 0  //NOP
+    addi zero, zero, 0     //NOP
     
-    addi a0 , a0 , 1  //then add a0 by 1 and output it as a0
+    addi a0 , a0 , 1       //then add a0 by 1 and output it as a0
     
-    addi zero, zero, 0  //NOP
+    addi zero, zero, 0     //NOP
     
-    addi zero, zero, 0  //NOP
+    addi zero, zero, 0     //NOP
     
-    bne  a0 , t1 , mloop  //if a0 does not equal to 11111111, back to mloop
+    bne  a0 , t1 , mloop   //if a0 does not equal to 11111111, back to mloop
     
-    addi zero, zero, 0  //NOP avoiding Control Hazard
+    addi zero, zero, 0     //NOP avoiding Control Hazard
     
-    addi zero, zero, 0  //NOP
+    addi zero, zero, 0     //NOP
     
-    ret  //exit and return to the next line after JAL instruction
+    ret                    //exit and return to the next line after JAL instruction
     
 Explaination:
 
