@@ -16,11 +16,7 @@ main:
     addi t1 , zero , 0xff  //t1=11111111
     
     JAL  ra , loop  //jump to the loop
-    
-    
-    
-    
-
+       
 loop: 
     
     addi s0 , zero, 0  //initialize s0=0
@@ -71,19 +67,19 @@ Final Machine Code:
 
 004000ef
 
-00000413
+00000513
 
 00000013
 
 00000013
 
-00141413
+00151513
 
 00000013
 
 00000013
 
-00140513
+00150513
 
 00000013
 
