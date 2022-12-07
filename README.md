@@ -20,12 +20,24 @@ main:
 loop: 
     
     addi s0 , zero, 0  //initialize s0=0
+    
+    addi zero, zero, 0  //NOP
+    
+    addi zero, zero, 0  //NOP
 
 mloop:
    
     slli s0 , s0 , 1  //first left shift s0 by 1 bit
     
+    addi zero, zero, 0  //NOP
+    
+    addi zero, zero, 0  //NOP
+    
     addi a0 , s0 , 1  //then add s0 by 1 and output it as a0
+    
+    addi zero, zero, 0  //NOP
+    
+    addi zero, zero, 0  //NOP
     
     bne  a0 , t1 , mloop  //if a0 does not equal to 11111111, back to mloop
     
