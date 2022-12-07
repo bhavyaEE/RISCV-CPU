@@ -60,6 +60,10 @@ Since we will implement pipeline without hazrd control unit, we will use two NOP
     
 For example in loop and mloop we repeatedly used s0 in two consecutive lines which means the s0 value has not been written back to register file before we use it again in second line. 
 
+    bne  a0 , t1 , mloop
+    ret
+
+Another example of Control Hazard happens when we want to branch to mloop if condition satisfies. However we have not decided whether the next line will be return or mloop when the second instruction is fetched therefore we need another two NOP to delay next line by two cycles.
     
 Final Machine Code:
 
