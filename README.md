@@ -16,12 +16,16 @@ main:
     addi t1 , zero , 0xff  //t1=11111111
     
     JAL  ra , loop  //jump to the loop
+    
+    
+    
+    
 
 loop: 
     
     addi s0 , zero, 0  //initialize s0=0
     
-    addi zero, zero, 0  //NOP
+    addi zero, zero, 0  //NOP avoiding Data Hazard
     
     addi zero, zero, 0  //NOP
 
@@ -29,7 +33,7 @@ mloop:
    
     slli s0 , s0 , 1  //first left shift s0 by 1 bit
     
-    addi zero, zero, 0  //NOP
+    addi zero, zero, 0  //NOP 
     
     addi zero, zero, 0  //NOP
     
@@ -41,9 +45,15 @@ mloop:
     
     bne  a0 , t1 , mloop  //if a0 does not equal to 11111111, back to mloop
     
-    ret  //exit
+    addi zero, zero, 0  //NOP avoiding Control Hazard
+    
+    addi zero, zero, 0  //NOP
+    
+    ret  //exit and return to the next line after JAL instruction
     
 Explaination:
+
+Since we will implement pipeline without hazrd control unit, we will use two NOP instruction when Data and Control Hazard happens. For example in loop and mloop we repeatedly used s0 in two consecutive lines which means the s0 value has not been written back to register file before we use it again in second line. 
 
     
 Final Machine Code:
