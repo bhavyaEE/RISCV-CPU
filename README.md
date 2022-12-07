@@ -53,7 +53,12 @@ mloop:
     
 Explaination:
 
-Since we will implement pipeline without hazrd control unit, we will use two NOP instruction when Data and Control Hazard happens. For example in loop and mloop we repeatedly used s0 in two consecutive lines which means the s0 value has not been written back to register file before we use it again in second line. 
+Since we will implement pipeline without hazrd control unit, we will use two NOP instruction when Data and Control Hazard happens. 
+
+    addi s0 , zero, 0
+    slli s0 , s0 , 1
+    
+For example in loop and mloop we repeatedly used s0 in two consecutive lines which means the s0 value has not been written back to register file before we use it again in second line. 
 
     
 Final Machine Code:
