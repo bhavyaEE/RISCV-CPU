@@ -19,7 +19,7 @@ main:
        
 loop: 
     
-    addi s0 , zero, 0  //initialize s0=0
+    addi a0 , zero, 0  //initialize a0=0
     
     addi zero, zero, 0  //NOP avoiding Data Hazard
     
@@ -27,13 +27,13 @@ loop:
 
 mloop:
    
-    slli s0 , s0 , 1  //first left shift s0 by 1 bit
+    slli a0 , a0 , 1  //first left shift a0 by 1 bit
     
     addi zero, zero, 0  //NOP 
     
     addi zero, zero, 0  //NOP
     
-    addi a0 , s0 , 1  //then add s0 by 1 and output it as a0
+    addi a0 , a0 , 1  //then add a0 by 1 and output it as a0
     
     addi zero, zero, 0  //NOP
     
