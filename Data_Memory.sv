@@ -1,24 +1,25 @@
-  module Data_Memory #(
-    parameter   ADDRESS_WIDTH = 32,
-                DATA_WIDTH = 32
-)(
-    input  logic                       clk,
-    input  logic                       reset,
-    input  logic  [ADDRESS_WIDTH-1:0]  addr,
-    output logic  [DATA_WIDTH-1:0]     instr
+module Data_Memory #(
+    parameter DATA_WIDTH = 32
+) (
+    /* verilator lint_off UNUSED */
+    input  logic [DATA_WIDTH-1:0] ALUout,
+    /* verilator lint_on UNUSED */
+    input  logic                  WE,
+    input  logic [DATA_WIDTH-1:0] WD,
+    input  logic                  clk,
+    output logic [DATA_WIDTH-1:0] RD
 );
 
-logic  [DATA_WIDTH-1:0] ram_array [2**ADDRESS_WIDTH-1:0];
+  logic [DATA_WIDTH-1:0] datamem_array[2**17-1:0];
 
-initial begin
-        $display("Loading ram.");
-        $readmemh("Sine.mem", ram_array);
-end;
+  always_ff @(posedge clk) begin
+    if (WE) datamem_array[ALUout] <= WD;
+  end
 
-always_ff @(posedge clk, posedge reset)
-begin
-    instr <= ram_array [addr];
-end
+  always_comb begin
+    RD = datamem_array[ALUout];
+  end
+
 
 endmodule
 

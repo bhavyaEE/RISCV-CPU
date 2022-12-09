@@ -21,6 +21,9 @@ module Reg_file #(
             reg_array[AD3] <= WD3;
     end 
 
+    assign reg_array[0]= 32'b0; 
+
+
     assign a0 = reg_array[{5'b01010}];
 
     always_comb
