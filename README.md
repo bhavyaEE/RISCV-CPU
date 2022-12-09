@@ -23,41 +23,41 @@ main:
        
 loop: 
     
-    addi a0 , zero, 0      //initialize output a0=0
+    addi a0 , zero , 0      //initialize output a0=0
 
-    addi s0 , zero, 0      //initialize intermediate s0=0
+    addi s0 , zero , 0      //initialize intermediate s0=0
     
-    addi zero, zero, 0     //NOP avoiding Data Hazard
+    addi zero , zero , 0    //NOP avoiding Data Hazard
     
-    addi zero, zero, 0     //NOP
+    addi zero , zero , 0    //NOP
 
 mloop:
    
     slli s0 , s0 , 1       //first left shift s0 by 1 bit
     
-    addi zero, zero, 0     //NOP 
+    addi zero , zero , 0   //NOP 
     
-    addi zero, zero, 0     //NOP
+    addi zero , zero , 0   //NOP
     
     addi s0 , s0 , 1       //then add s0 by 1
     
-    addi zero, zero, 0     //NOP
+    addi zero , zero , 0   //NOP
     
-    addi zero, zero, 0     //NOP
+    addi zero , zero , 0   //NOP
 
     addi a0 , s0 , 0       //preserve s0 as output a0
 
-    addi zero, zero, 0     //NOP
-
-    addi zero, zero, 0     //NOP
+    addi zero , zero , 0   //NOP
+ 
+    addi zero , zero , 0   //NOP
     
     bne  a0 , t1 , mloop   //if a0 does not equal to 11111111, back to mloop
     
-    addi zero, zero, 0     //NOP avoiding Control Hazard
+    addi zero , zero , 0   //NOP avoiding Control Hazard
     
-    addi zero, zero, 0     //NOP
+    addi zero , zero , 0   //NOP
     
-    jalr t2, ra, 0         //exit and return to the next line after JAL instruction
+    jalr t2 , ra , 0       //exit and return to the next line after JAL instruction
     
 Explaination:
 
@@ -67,13 +67,13 @@ Branch not equal compares the a0 with the preset value in t1, which is the last 
 
 Since we will implement pipeline without hazrd control unit, we will use two NOP instruction when Data and Control Hazard happens. 
 
-    addi s0 , zero, 0
+    addi s0 , zero , 0
     slli s0 , 0 , 1
     
-For example in loop and mloop we repeatedly used a0 in two consecutive lines which means the a0 value has not been written back to register file before we use it again in second line. 
+For example in loop and mloop we repeatedly used s0 in two consecutive lines which means the s0 value has not been written back to register file before we use it again in second line. 
 
     bne  a0 , t1 , mloop
-    ret
+    jalr t2 , ra , 0
 
 Another example of Control Hazard happens when we want to branch to mloop if condition satisfies. However we have not decided whether the next line will be return or mloop when the second instruction is fetched therefore we need another two NOP to delay next line by two cycles.
     
