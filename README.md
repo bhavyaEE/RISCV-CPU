@@ -130,9 +130,10 @@ fc651ee3
 000083e7
 ## Implementation
 
-Jump:
+### Data Memory - Riya
+As we had not created a Data Memory as an extention in Lab 4, it was added as a task for the coursework. When trying to implement it the I began by looking at the RISC-V diagram given in lectures to see the input and output signals driving the Data Memory Module.
 
-Shift:
+### Shift - Riya 
 
 Data Memory:
 
