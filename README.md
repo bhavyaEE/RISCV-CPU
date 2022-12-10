@@ -135,6 +135,14 @@ As we had not created a Data Memory as an extention in Lab 4, it was added as a 
 
 <img width="702" alt="Screenshot 2022-12-10 at 11 41 44" src="https://user-images.githubusercontent.com/115703122/206853241-c259f26b-9809-438e-953f-8243c735c360.png">
 
+Changes needed for Data Memory:
+
+
+Debugging:
+
+
+Testing:
+
 ### Shift - Riya 
 
 Data Memory:
