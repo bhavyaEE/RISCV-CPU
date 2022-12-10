@@ -131,7 +131,9 @@ fc651ee3
 ## Implementation
 
 ### Data Memory - Riya
-As we had not created a Data Memory as an extention in Lab 4, it was added as a task for the coursework. When trying to implement it the I began by looking at the RISC-V diagram given in lectures to see the input and output signals driving the Data Memory Module.
+As we had not created a Data Memory as an extention in Lab 4, it was added as a task for the coursework. When trying to implement it the I began by looking at the RISC-V diagram given in lectures to see the input and output signals driving the Data Memory Module:
+
+<img width="702" alt="Screenshot 2022-12-10 at 11 41 44" src="https://user-images.githubusercontent.com/115703122/206853241-c259f26b-9809-438e-953f-8243c735c360.png">
 
 ### Shift - Riya 
 
