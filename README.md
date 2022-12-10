@@ -8,7 +8,10 @@
 - Finally, we piplined the RISC-V cpu and tested our final design. 
 
 When splitting the tasks we decided to work in pairs for machine code and implementation, then reference and piplining. This ensured that as indivduals we were not making simple mistakes and were constantly being questioned with each decision we made. This is how the tasks were divided:
-- 
+- Machine Code - Isabel and Ethan
+- Implementation of Machine Code - Riya and Bhavya 
+- Reference Code implementation - Riya and Bhavya 
+- Piplining - Isabel and Ethan
 
 ## Planning
 
