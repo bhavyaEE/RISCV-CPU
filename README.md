@@ -3,6 +3,11 @@
 
 - We began the project by **planning the tasks**, this included understanding the objectives of the task as a team as well as creating and delegating tasks. 
 - Once the tasks had been delegated, **machine code** which would implement the f1 light switch was created and checked by other memeber of the team.
+- After the machine code was created we delegated the tasks of **implementing the machine code**, adding new architecture needed for the machine code. This included planning the additions to the cpu, implementing the changes and then begugging any issues.
+- Next, we **implemented the reference code**, this involed adding a load byte and store byte instruction and testing the reference code against our cpu.
+- Finally, we piplined the RISC-V cpu and tested our final design. 
+
+When splitting the tasks we decided to work in pairs for machine code and implementation, then reference and piplining. This ensured that as indivduals we were not making simple mistakes and were constantly being questioned with each decision we made. This is how the tasks were divided:
 - 
 
 ## Planning
