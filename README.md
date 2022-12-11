@@ -147,20 +147,40 @@ Changes needed for Data Memory:
 
 **Clock**- Simillar to the register file, the data memory is clocked. This is important as it avoids writing to an address with trying to read from it, so it is essential that it is clocked logic.
 
-**
+**Read Data**- This would be the output of the Dta Memory that gets stored into a register in the regfile (through the regfile write data). The Read data would take the value stored in the data memory from ALUout and only ouput this value into the regfile if Resultsrc signal was high. This signal would be set to high if the opcode for a load was read from the instruction. A mux in the ALU.sv top level module would then select between the ALUout value or the Read Data value depending on if Resultsrc is high. 
 
+Data Memory Module:
+
+<img width="897" alt="Screenshot 2022-12-11 at 12 48 44" src="https://user-images.githubusercontent.com/115703122/206904483-a5761a04-2590-47fc-8ed6-1772a30dd1ad.png">
+
+Control Unit signals:
+
+<img width="230" alt="Screenshot 2022-12-11 at 12 49 05" src="https://user-images.githubusercontent.com/115703122/206904500-1d37ea1b-20be-4251-a516-f166fcc75784.png">
+
+Top Level ALU mux:
+
+<img width="471" alt="Screenshot 2022-12-11 at 12 49 28" src="https://user-images.githubusercontent.com/115703122/206904515-cada2c3e-320b-4e9c-85c3-462deaaee4ee.png">
 
 Debugging:
 
 **Control Unit Combinational loop** 
 
-
+<img width="778" alt="Screenshot 2022-12-11 at 12 33 46" src="https://user-images.githubusercontent.com/115703122/206903806-44b003a9-796e-47ed-85c2-a78859dd1e46.png">
 
 Testing:
 
 **Understanding Instructions**- 
 
+<img width="957" alt="Screenshot 2022-12-11 at 12 36 28" src="https://user-images.githubusercontent.com/115703122/206903936-efe057d0-ee8c-4eb2-89d9-1cedbbcad260.png">
+
 **Creating Test Machine Code**- 
+
+<img width="310" alt="Screenshot 2022-12-11 at 12 36 58" src="https://user-images.githubusercontent.com/115703122/206903955-2511d995-40f7-4358-8edf-4eab3ec93772.png">
+
+
+**Output**- 
+
+<img width="526" alt="Screenshot 2022-12-11 at 12 37 16" src="https://user-images.githubusercontent.com/115703122/206903968-30cd4bf0-a8a6-4c4b-aa8c-ae1ee53187ce.png">
 
 ### Shift - Riya 
 
