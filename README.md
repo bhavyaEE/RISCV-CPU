@@ -140,6 +140,8 @@ Changes needed for Data Memory:
 **Creation of Data Memory module** - In order to create the Data memory module I refered to the final RISC-V diagram. The inputs to the module were the data memory address (ALUout), the write data, write enable, clock, ALUout and read data. 
 
 **Data Memory Address**- The Data Memory address consisted of 32 bits from the ALUout. The ALUout is the addition of rst1 and Immidient sign extended. 
+**Write Enable**- According to the RISC-V diagram the write enable comes from a signal within the control unit called MemWrite. I created logic within the control unit to set Memwrite to high if the opcode of the instruction was for a store instruction, as this would require writing to the memory.
+**Write Data**- This will take in the data value that will be written into the data memory address if write enable is high (you are implementing a store instruction). Write Data is driven by the value of rst2 from the value within RD2. 
 
 Debugging:
 
@@ -148,6 +150,3 @@ Testing:
 
 ### Shift - Riya 
 
-Data Memory:
-
-##
