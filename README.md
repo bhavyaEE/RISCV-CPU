@@ -145,10 +145,22 @@ Changes needed for Data Memory:
 
 **Write Data**- This will take in the data value that will be written into the data memory address if write enable is high (you are implementing a store instruction). Write Data is driven by the value of rst2 from the value within RD2. 
 
+**Clock**- Simillar to the register file, the data memory is clocked. This is important as it avoids writing to an address with trying to read from it, so it is essential that it is clocked logic.
+
+**
+
+
 Debugging:
+
+**Control Unit Combinational loop** 
+
 
 
 Testing:
+
+**Understanding Instructions**- 
+
+**Creating Test Machine Code**- 
 
 ### Shift - Riya 
 
