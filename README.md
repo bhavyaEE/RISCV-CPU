@@ -136,8 +136,10 @@ As we had not created a Data Memory as an extention in Lab 4, it was added as a 
 <img width="702" alt="Screenshot 2022-12-10 at 11 41 44" src="https://user-images.githubusercontent.com/115703122/206853241-c259f26b-9809-438e-953f-8243c735c360.png">
 
 Changes needed for Data Memory:
-- Creation of Data Memory module - In order to create the Data memory module I refered to the final RISC-V diagram. The inputs to the module were the data memory address (the rst1 signal + Immop sign extended), the write data, write enable, ALUout and read data. 
 
+**Creation of Data Memory module** - In order to create the Data memory module I refered to the final RISC-V diagram. The inputs to the module were the data memory address (ALUout), the write data, write enable, clock, ALUout and read data. 
+
+**Data Memory Address**- The Data Memory address consisted of 32 bits from the ALUout. The ALUout is the addition of rst1 and Immidient sign extended. 
 
 Debugging:
 
