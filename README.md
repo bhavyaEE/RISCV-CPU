@@ -197,3 +197,13 @@ The output was 0x001 into a0 which was as expected proving the lw and sw instruc
 
 ### Shift - Riya 
 
+### Jump - Bhavya
+
+### Merging Jump and Shift
+
+Final diagram of working F1 cpu:
+
+## Piplining - Ethan and Isabel
+
+## Reference Program - Bhavya and Riya
+
