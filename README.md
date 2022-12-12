@@ -203,7 +203,8 @@ The output was 0x001 into a0 which was as expected proving the lw and sw instruc
 
 Final diagram of working F1 cpu:
 
+## Reference Program - Bhavya and Riya
+
 ## Piplining - Ethan and Isabel
 
-## Reference Program - Bhavya and Riya
 
