@@ -9,6 +9,12 @@
 
 ## Planning
 
+###Understanding the Project Brief 
+
+<img width="588" alt="Screenshot 2022-12-12 at 16 53 18" src="https://user-images.githubusercontent.com/115703122/207105417-c04ce3ca-88a8-4a5b-9f15-46a6a99fc381.png">
+
+<img width="277" alt="Screenshot 2022-12-12 at 16 53 31" src="https://user-images.githubusercontent.com/115703122/207105457-c1e3dd3a-88f3-4c5f-8582-af2e7824466f.png">
+
 When splitting the tasks we decided to work in pairs for machine code and implementation, then reference and piplining. This ensured that as indivduals we were not making simple mistakes and were constantly being questioned with each decision we made. This is how the tasks were divided:
 - Machine Code - Isabel and Ethan
 - Implementation of Machine Code - Riya and Bhavya 
@@ -175,9 +181,7 @@ The biggest issue with debugging was a combinational loop occuring in the contro
 
 Testing:
 
-In order to test the load and store word instructions, 
-
-**Understanding Instructions**- 
+In order to test the load and store word instructions, I first had to understand the instruction format. As load and store are register addressed I had to load values into a register using an addi instruction. Then I stored that value into a data memory location, sw t1 0(t2). This stored the value with register t1 (0x001 from previous addi instruction) into the data memory address 0(t2), this means the value in register t2+0 offset so that would store in data memory location 0x1000 from previous addi instruction. In was important that i only accessed memory from the allowed range of data memory addresses from the project brief. 
 
 <img width="957" alt="Screenshot 2022-12-11 at 12 36 28" src="https://user-images.githubusercontent.com/115703122/206903936-efe057d0-ee8c-4eb2-89d9-1cedbbcad260.png">
 
@@ -185,8 +189,9 @@ In order to test the load and store word instructions,
 
 <img width="310" alt="Screenshot 2022-12-11 at 12 36 58" src="https://user-images.githubusercontent.com/115703122/206903955-2511d995-40f7-4358-8edf-4eab3ec93772.png">
 
-
 **Output**- 
+
+The output was 0x001 into a0 which was as expected proving the lw and sw instruction worked.
 
 <img width="526" alt="Screenshot 2022-12-11 at 12 37 16" src="https://user-images.githubusercontent.com/115703122/206903968-30cd4bf0-a8a6-4c4b-aa8c-ae1ee53187ce.png">
 
