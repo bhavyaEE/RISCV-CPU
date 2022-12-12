@@ -147,7 +147,7 @@ Changes needed for Data Memory:
 
 **Clock**- Simillar to the register file, the data memory is clocked. This is important as it avoids writing to an address with trying to read from it, so it is essential that it is clocked logic.
 
-**Read Data**- This would be the output of the Dta Memory that gets stored into a register in the regfile (through the regfile write data). The Read data would take the value stored in the data memory from ALUout and only ouput this value into the regfile if Resultsrc signal was high. This signal would be set to high if the opcode for a load was read from the instruction. A mux in the ALU.sv top level module would then select between the ALUout value or the Read Data value depending on if Resultsrc is high. 
+**Read Data**- This would be the output of the Data Memory that gets stored into a register in the regfile (through the regfile write data). The Read data would take the value stored in the data memory from ALUout and only ouput this value into the regfile if Resultsrc signal was high. This signal would be set to high if the opcode for a load was read from the instruction. A mux in the ALU.sv top level module would then select between the ALUout value or the Read Data value depending on if Resultsrc is high. 
 
 Data Memory Module:
 
@@ -159,15 +159,23 @@ Control Unit signals:
 
 Top Level ALU mux:
 
+In the top level ALU i included the logic for the mux, this will load the read data into the register file if a load instruction is detected (ResultSrc is high), else it will simply output ALUout. 
+
 <img width="471" alt="Screenshot 2022-12-11 at 12 49 28" src="https://user-images.githubusercontent.com/115703122/206904515-cada2c3e-320b-4e9c-85c3-462deaaee4ee.png">
 
 Debugging:
 
 **Control Unit Combinational loop** 
 
+<img width="829" alt="Screenshot 2022-12-12 at 16 36 22" src="https://user-images.githubusercontent.com/115703122/207101510-95409f50-b201-404f-8d7c-8752aa1a0576.png">
+
+The biggest issue with debugging was a combinational loop occuring in the control unit, because EQ depended on additional signals such as ALUsrc or Immsrc but this sigals also depended on EQ. Our first attempt to resolve this was to put EQ in a separate case statement however this meant that the default values set to zero would conflict with the signals in the second case block. In the end we resolved the warning by creating a separate combinational block for EQ which only depended on PCsrc. We also encountered other simple errors, such as syntax and not leaving a line after endmodule and the machine code. Most errors were debugged by reviewing the signals in GTKwave and establishing which outputs were incorrect and then reviewing the code to see why that occured and how to correct it. Additionally, I had machine code errors not realising the right format for a load store instruction which was fixed by reviewing the instructions and understanding how they were written below:
+
 <img width="778" alt="Screenshot 2022-12-11 at 12 33 46" src="https://user-images.githubusercontent.com/115703122/206903806-44b003a9-796e-47ed-85c2-a78859dd1e46.png">
 
 Testing:
+
+In order to test the load and store word instructions, 
 
 **Understanding Instructions**- 
 
