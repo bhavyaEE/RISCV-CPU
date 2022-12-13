@@ -9,7 +9,12 @@
 
 ## Planning
 
-###Understanding the Project Brief 
+### Understanding the Project Brief 
+
+Before doing our separate tasks, we also came together as a team to understand the specification of the project. 
+1) We ensured our machine code included a Jump and Link instruction to excute the F1 sequence.
+2) We first aimed to complete the F1 program and Reference and then attempt pipeline and cache as challenges.
+3) We made sure to include the inputs and outputs to the RISC-V processor below. This include a reset, this resets only the processor to start the program, and is not used to reset counters or a state machine. Addditionally, we implemented a trigger signal used to tell RISC-V when to start the F1 light sequence. **We decided for the trigger signal to be automatic, so thatas soon as the program starts, the F1 light sequence is triggered**. 
 
 <img width="588" alt="Screenshot 2022-12-12 at 16 53 18" src="https://user-images.githubusercontent.com/115703122/207105417-c04ce3ca-88a8-4a5b-9f15-46a6a99fc381.png">
 
