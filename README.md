@@ -203,16 +203,37 @@ The output was 0x001 into a0 which was as expected proving the lw and sw instruc
 ### Shift - Riya 
 When creating the shift I made an orirginal version, which consisted of adding an additional module which would take RD1 into a shift module, and if shift select was high then RD1 would be shifted to the left by one bit. The diagram and implementation of the first version of shift is shown below:
 
-For our F1 machine code we used a slli instruction which was a logical shift left 
+For our F1 machine code we used a slli instruction which was a logical shift left, in order to implement this orginallly I added the shift instruction to the control signal, so that for the shift opcode and function 3 a shift select would be set high which would set a multiplexer at the end of the cpu to the value in RD1 concanticated one bit to the left.
 
 <img width="531" alt="Screenshot 2022-12-14 at 11 36 42" src="https://user-images.githubusercontent.com/115703122/207585153-2d7e218a-1049-4e5e-987d-cef1c89cb810.png">
 
+Here is the new control unit instruction:
+
+<img width="402" alt="Screenshot 2022-12-14 at 13 11 29" src="https://user-images.githubusercontent.com/115703122/207604251-1c1998ff-5d54-4f6c-9636-bb893e520146.png">
+
+
+Inside Shift Module:
+
+The Shift module takes in the value of RD1 and concatinates the 32 bits in order to implement the shift.
+
+<img width="744" alt="Screenshot 2022-12-14 at 13 12 43" src="https://user-images.githubusercontent.com/115703122/207604517-a5f3ea9a-3937-448a-93ca-e99a150fdfce.png">
+
+Shift Mux:
+
+
 
 Issues with this version:
-
+- Using a shift module meant that the were additions to the architecture such as mux's and a shift module which are unnessary and overly compilicated.
+- The architecture could only implement a shift by 1 bit and did not fufil the requirements of the instruction to shift by ImmOp.
+- Using a concantination to shift was inefficient and its better to use the inbuilt shift operator.
+- It was difficult to combine this shift implementation with the jump additions.
 
 Final version:
+The final version involed setting ALUctrl in s shift operation to 001 so that the shift can be implemented inside the ALU module.
 
+- Ultilizes the fact that there are free bits in ALUctrl to implement a shift instruction inside the ALU module.
+- No changes required to architecture as shift occurs in ALU.
+- As we use the shift operator we can shift by different amounts using Immop.
 
 ### Jump - Bhavya
 
