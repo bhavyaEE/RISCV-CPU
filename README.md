@@ -211,25 +211,32 @@ Here is the new control unit instruction:
 
 <img width="402" alt="Screenshot 2022-12-14 at 13 11 29" src="https://user-images.githubusercontent.com/115703122/207604251-1c1998ff-5d54-4f6c-9636-bb893e520146.png">
 
-
-Inside Shift Module:
+**Inside Shift Module:**
 
 The Shift module takes in the value of RD1 and concatinates the 32 bits in order to implement the shift.
 
 <img width="744" alt="Screenshot 2022-12-14 at 13 12 43" src="https://user-images.githubusercontent.com/115703122/207604517-a5f3ea9a-3937-448a-93ca-e99a150fdfce.png">
 
-Shift Mux:
+**Shift Mux:**
 
 
 
-Issues with this version:
+**Issues with this version:**
 - Using a shift module meant that the were additions to the architecture such as mux's and a shift module which are unnessary and overly compilicated.
 - The architecture could only implement a shift by 1 bit and did not fufil the requirements of the instruction to shift by ImmOp.
 - Using a concantination to shift was inefficient and its better to use the inbuilt shift operator.
 - It was difficult to combine this shift implementation with the jump additions.
 
-Final version:
+**Final version:**
 The final version involed setting ALUctrl in s shift operation to 001 so that the shift can be implemented inside the ALU module.
+
+Control Unit:
+
+
+
+ALU module:
+
+
 
 - Ultilizes the fact that there are free bits in ALUctrl to implement a shift instruction inside the ALU module.
 - No changes required to architecture as shift occurs in ALU.
