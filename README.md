@@ -266,9 +266,7 @@ Once the new arcitecture for data memory, jump and shift were created on separat
 
 **Testing**
 
-
-
-**Output**
+In order to test the F1 light sequence cpu, we ran the machine code (shown in above section) and analysed the gtkwave output. Once we were happy with the waveforms generated, we added the vbdBar function and saw the correct leight sequence on the Vbuddy. The LED's went up from 1 to 11111111 and then back to zero, as we were expecting. 
 
 
 
