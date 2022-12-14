@@ -268,6 +268,12 @@ Final diagram of working F1 cpu:
 
 ## Pipelining - Ethan and Isabel
 
+![image](https://github.com/EIE2-IAC-Labs/iac-riscv-cw-11/blob/main/pipe.jpeg)
+
+Pipelining was divided into two parts, firstly we created **four individual pipeline registers**, as shown on the diagram. On each clock cycle, signals move from stage to stage with the same purpose but different instructions. They are distinguished by different suffixes, e.g. D, E, to indicate which stage the signal has reached. In modules, the output signals are given with the input signals synchronously on rising edge of the CLK. In pipe2, control unit was kept the same except that all the control signals are also be pipelined, to arrive in synchrony to the datapath. This ensures that control signals can travel with the data, providing the correct signal to control each stage.
+
+After completing the registers, the **five stages** were creating as top level modules with all blocks and pipeline registers inserted.
+
 ## Pipelining Debugging and Combining with Reference Code - Riya and Bhavya 
 
 Final Cpu Diagram:
