@@ -201,6 +201,18 @@ The output was 0x001 into a0 which was as expected proving the lw and sw instruc
 <img width="526" alt="Screenshot 2022-12-11 at 12 37 16" src="https://user-images.githubusercontent.com/115703122/206903968-30cd4bf0-a8a6-4c4b-aa8c-ae1ee53187ce.png">
 
 ### Shift - Riya 
+When creating the shift I made an orirginal version, which consisted of adding an additional module which would take RD1 into a shift module, and if shift select was high then RD1 would be shifted to the left by one bit. The diagram and implementation of the first version of shift is shown below:
+
+For our F1 machine code we used a slli instruction which was a logical shift left 
+
+<img width="531" alt="Screenshot 2022-12-14 at 11 36 42" src="https://user-images.githubusercontent.com/115703122/207585153-2d7e218a-1049-4e5e-987d-cef1c89cb810.png">
+
+
+Issues with this version:
+
+
+Final version:
+
 
 ### Jump - Bhavya
 
