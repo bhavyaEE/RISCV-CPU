@@ -250,15 +250,15 @@ Once the new arcitecture for data memory, jump and shift were created on separat
 
 2) Next, we added the Jump logic to set PCSrc high inside the control unit. 
 
-![image](https://user-images.githubusercontent.com/115703122/207657077-ccc56226-ba1c-41f8-8d55-94e1485697b2.png)
+<img width="353" alt="Screenshot 2022-12-14 at 16 52 29" src="https://user-images.githubusercontent.com/115703122/207657793-dea2a320-9ca8-4c67-8de6-23b1afa3db2b.png">
 
 3) We also added the Data Memory module to the top level and connected it into the cpu at the end of the diagram. 
 
-![image](https://user-images.githubusercontent.com/115703122/207657107-7b90759e-891d-4773-b7f6-2744412f68b4.png)
+<img width="149" alt="Screenshot 2022-12-14 at 16 52 39" src="https://user-images.githubusercontent.com/115703122/207657840-756ca4d2-8097-44b7-b9eb-893f681bb747.png">
 
 4) Finally, in order to test we added a vbdBar function into our test bench to record the F1 light sequence on the LED's. 
 
-![image](https://user-images.githubusercontent.com/115703122/207657135-7f4bb3d3-cfee-49b3-a6d8-97e1e4bb5e85.png)
+<img width="109" alt="Screenshot 2022-12-14 at 16 52 54" src="https://user-images.githubusercontent.com/115703122/207657901-a9522942-7ceb-4962-9399-b3c52a1e34f9.png">
 
 **Final diagram of working F1 cpu:**
 
