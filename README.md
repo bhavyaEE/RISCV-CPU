@@ -2,8 +2,8 @@
 ## Initial Approach
 
 - We began the project by **planning the tasks**, this included understanding the objectives of the task as a team as well as creating and delegating tasks. 
-- Once the tasks had been delegated, **machine code** which would implement the f1 light switch was created and checked by other memeber of the team.
-- After the machine code was created we delegated the tasks of **implementing the machine code**, adding new architecture needed for the machine code. This included planning the additions to the cpu, implementing the changes and then begugging any issues.
+- Once the tasks had been delegated, **machine code** which would implement the f1 light switch was created and checked by other member of the team.
+- After the machine code was created we delegated the tasks of **implementing the machine code**, adding new architecture which is needed for the machine code, based on the pre-built blocks in Lab 4. This included planning the additions to the cpu, implementing the changes and then begugging any issues.
 - Next, we **implemented the reference code**, this involed adding a load byte and store byte instruction and testing the reference code against our cpu.
 - Finally, we piplined the RISC-V cpu and tested our final design. 
 
@@ -98,47 +98,27 @@ Another example of Control Hazard happens when we want to branch to mloop if con
     
 Final Machine Code:
 
-0ff00313
-
-00c000ef
-
-00000513
-
-00000413
-
-00000513
-
-00000413
-
-00000013
-
-00000013
-
-00141413
-
-00000013
-
-00000013
-
-00140413
-
-00000013
-
-00000013
-
-00040513
-
-00000013
-
-00000013
-
-fc651ee3
-
-00000013
-
-00000013
-
-000083e7
+    0ff00313
+    00c000ef
+    00000513
+    00000413
+    00000513
+    00000413
+    00000013
+    00000013
+    00141413
+    00000013
+    00000013
+    00140413
+    00000013
+    00000013
+    00040513
+    00000013
+    00000013
+    fc651ee3
+    00000013
+    00000013
+    000083e7
 ## Implementation
 
 ### Data Memory - Riya
@@ -273,6 +253,10 @@ Final diagram of working F1 cpu:
 Pipelining was divided into two parts, firstly we created **four individual pipeline registers**, as shown on the diagram. On each clock cycle, signals move from stage to stage with the same purpose but different instructions. They are distinguished by different suffixes, e.g. D, E, to indicate which stage the signal has reached. In modules, the output signals are given with the input signals synchronously on rising edge of the CLK. In pipe2, control unit was kept the same except that all the control signals are also be pipelined, to arrive in synchrony to the datapath. This ensures that control signals can travel with the data, providing the correct signal to control each stage.
 
 After completing the registers, the **five stages** were creating as top level modules with all blocks and pipeline registers inserted.
+
+*Hazard*:
+
+To avoid pipelining hazard, instead of adding hazard unit, we chose to add NOP instructions to ensure that register values have already be written back to register file, and the next instruction has been decided (in **Branch** situation). This is shown in detail in **Machine Code Explaination** previously.
 
 ## Pipelining Debugging and Combining with Reference Code - Riya and Bhavya 
 
