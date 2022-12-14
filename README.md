@@ -246,6 +246,18 @@ ALU module:
 - No changes required to architecture as shift occurs in ALU.
 - As we use the shift operator we can shift by different amounts using Immop.
 
+**Testing:**
+
+I created simple machine code to load the value 0xFF into s0 and then shift the value left by 1 simillar to the shifts in our F1 machine code:
+
+<img width="279" alt="Screenshot 2022-12-14 at 13 38 36" src="https://user-images.githubusercontent.com/115703122/207609911-9e457f30-ad90-4579-a3b3-ae5daaebb3f9.png">
+
+**Output:**
+
+The ouput resulted in a0 outputting a value of 0xFF shifted by 1 with a 0 last bit, as expected, proving the slli shift instruction now worked.
+
+<img width="688" alt="Screenshot 2022-12-14 at 13 39 55" src="https://user-images.githubusercontent.com/115703122/207610175-908ba567-748c-4df3-916c-630dc6e71d46.png">
+
 ### Jump - Bhavya
 
 ### Merging Jump and Shift
@@ -254,6 +266,15 @@ Final diagram of working F1 cpu:
 
 ## Reference Program - Bhavya and Riya
 
-## Piplining - Ethan and Isabel
+## Pipelining - Ethan and Isabel
+
+## Pipelining Debugging and Combining with Reference Code - Riya and Bhavya 
+
+Final Cpu Diagram:
+
+<img width="615" alt="Screenshot 2022-12-14 at 13 35 47" src="https://user-images.githubusercontent.com/115703122/207609285-6f8e4b49-bb37-4e66-ad20-fb92056c159e.png">
+
+<img width="286" alt="Screenshot 2022-12-14 at 13 36 04" src="https://user-images.githubusercontent.com/115703122/207609362-1d8a8493-8773-4a83-9381-67c95edb2343.png">
+
 
 
