@@ -246,7 +246,7 @@ Once the new arcitecture for data memory, jump and shift were created on separat
 
 1) We decided to change the format of the sign extension module to better match the instructions. Inside of labelling the extention by instruction we labelled them by instruction type. This was implemented after realising the sign extend for store was wrong and that Jalr and addi should have the same sign extend as they were boh type I instructions.
 
-
+<img width="998" alt="Screenshot 2022-12-14 at 17 12 59" src="https://user-images.githubusercontent.com/115703122/207662203-13b204ae-0880-4d8d-ba20-571a7436636e.png">
 
 2) Next, we added the Jump logic to set PCSrc high inside the control unit. 
 
