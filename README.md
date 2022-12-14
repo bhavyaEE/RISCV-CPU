@@ -242,7 +242,35 @@ The ouput resulted in a0 outputting a value of 0xFF shifted by 1 with a 0 last b
 
 ### Merging Jump and Shift
 
-Final diagram of working F1 cpu:
+Once the new arcitecture for data memory, jump and shift were created on separate branches we then had to merge all the branches together. This included the following changes:
+
+1) We decided to change the format of the sign extension module to better match the instructions. Inside of labelling the extention by instruction we labelled them by instruction type. This was implemented after realising the sign extend for store was wrong and that Jalr and addi should have the same sign extend as they were boh type I instructions.
+
+
+
+2) Next, we added the Jump logic to set PCSrc high inside the control unit. 
+
+![image](https://user-images.githubusercontent.com/115703122/207657077-ccc56226-ba1c-41f8-8d55-94e1485697b2.png)
+
+3) We also added the Data Memory module to the top level and connected it into the cpu at the end of the diagram. 
+
+![image](https://user-images.githubusercontent.com/115703122/207657107-7b90759e-891d-4773-b7f6-2744412f68b4.png)
+
+4) Finally, in order to test we added a vbdBar function into our test bench to record the F1 light sequence on the LED's. 
+
+![image](https://user-images.githubusercontent.com/115703122/207657135-7f4bb3d3-cfee-49b3-a6d8-97e1e4bb5e85.png)
+
+**Final diagram of working F1 cpu:**
+
+
+
+**Testing**
+
+
+
+**Output**
+
+
 
 ## Reference Program - Bhavya and Riya
 
