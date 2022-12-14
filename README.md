@@ -211,6 +211,10 @@ Here is the new control unit instruction:
 
 <img width="402" alt="Screenshot 2022-12-14 at 13 11 29" src="https://user-images.githubusercontent.com/115703122/207604251-1c1998ff-5d54-4f6c-9636-bb893e520146.png">
 
+Shift select added to the control unit used for shift mux:
+
+<img width="365" alt="Screenshot 2022-12-14 at 13 24 19" src="https://user-images.githubusercontent.com/115703122/207606945-d095c82e-d004-4752-88de-143084632712.png">
+
 **Inside Shift Module:**
 
 The Shift module takes in the value of RD1 and concatinates the 32 bits in order to implement the shift.
@@ -219,7 +223,7 @@ The Shift module takes in the value of RD1 and concatinates the 32 bits in order
 
 **Shift Mux:**
 
-
+<img width="710" alt="Screenshot 2022-12-14 at 13 25 22" src="https://user-images.githubusercontent.com/115703122/207607143-8e7fa74f-7c37-4c1e-a3b4-112494272a73.png">
 
 **Issues with this version:**
 - Using a shift module meant that the were additions to the architecture such as mux's and a shift module which are unnessary and overly compilicated.
@@ -232,11 +236,11 @@ The final version involed setting ALUctrl in s shift operation to 001 so that th
 
 Control Unit:
 
-
+<img width="265" alt="Screenshot 2022-12-14 at 13 26 21" src="https://user-images.githubusercontent.com/115703122/207607342-1b7eec38-041a-4b77-b00f-f64b46fada1c.png">
 
 ALU module:
 
-
+<img width="322" alt="Screenshot 2022-12-14 at 13 26 40" src="https://user-images.githubusercontent.com/115703122/207607411-6416d5a6-537a-430e-8a3a-38ffc78ad610.png">
 
 - Ultilizes the fact that there are free bits in ALUctrl to implement a shift instruction inside the ALU module.
 - No changes required to architecture as shift occurs in ALU.
