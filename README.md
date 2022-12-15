@@ -296,6 +296,8 @@ There was a change in Write back stage multiplexer as well. Our ResultSrc was on
 
 <img width="550" alt="image" src="https://user-images.githubusercontent.com/69693952/207888024-d0452559-32c9-47a6-abe1-60bc14ae994a.png">
 
+There were no problematic errors when we test the pipeline implementation, nearly all of them are repeated errors which were mentioned above.
+
 *Hazard*:
 
 To avoid pipelining hazard, instead of adding hazard unit, we chose to add NOP instructions to ensure that register values have already be written back to register file, and the next instruction has been decided (in **Branch** situation). This is shown in detail in **Machine Code Explaination** previously.
