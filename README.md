@@ -286,11 +286,12 @@ We also have slight changes on control path. Rather than implementing AND, OR ga
 
 ![image](https://user-images.githubusercontent.com/69693952/207880674-1e6c49e6-68e9-418d-b78b-9486eb7fdd6b.png)
 
-After completing the registers, the **five stages** were creating as top level modules with all blocks and pipeline registers inserted.
 
 We have noticed that we need to change the posedge clk to negedge while writing register file. This is because in order to make it efficient we do not want to add another pipeline register with register file and we can simply write data at negative clock edge.
 
-https://github.com/EIE2-IAC-Labs/iac-riscv-cw-11/blob/main/pipe.jpeg![image](https://user-images.githubusercontent.com/69693952/207883787-1c78b22b-70b3-4a07-b03a-ed28c86f3af1.png)
+![image](https://user-images.githubusercontent.com/69693952/207884431-a861f3b0-1ae1-4e30-a5b4-98f30428d540.png)
+
+After completing the registers, the **five stages** were creating as top level modules with all blocks and pipeline registers inserted.
 
 
 *Hazard*:
