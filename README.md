@@ -154,16 +154,6 @@ In the top level ALU i included the logic for the mux, this will load the read d
 
 <img width="471" alt="Screenshot 2022-12-11 at 12 49 28" src="https://user-images.githubusercontent.com/115703122/206904515-cada2c3e-320b-4e9c-85c3-462deaaee4ee.png">
 
-Debugging:
-
-**Control Unit Combinational loop** 
-
-<img width="829" alt="Screenshot 2022-12-12 at 16 36 22" src="https://user-images.githubusercontent.com/115703122/207101510-95409f50-b201-404f-8d7c-8752aa1a0576.png">
-
-The biggest issue with debugging was a combinational loop occuring in the control unit, because EQ depended on additional signals such as ALUsrc or Immsrc but this sigals also depended on EQ. Our first attempt to resolve this was to put EQ in a separate case statement however this meant that the default values set to zero would conflict with the signals in the second case block. In the end we resolved the warning by creating a separate combinational block for EQ which only depended on PCsrc. We also encountered other simple errors, such as syntax and not leaving a line after endmodule and the machine code. Most errors were debugged by reviewing the signals in GTKwave and establishing which outputs were incorrect and then reviewing the code to see why that occured and how to correct it. Additionally, I had machine code errors not realising the right format for a load store instruction which was fixed by reviewing the instructions and understanding how they were written below:
-
-<img width="778" alt="Screenshot 2022-12-11 at 12 33 46" src="https://user-images.githubusercontent.com/115703122/206903806-44b003a9-796e-47ed-85c2-a78859dd1e46.png">
-
 Testing:
 
 In order to test the load and store word instructions, I first had to understand the instruction format. As load and store are register addressed I had to load values into a register using an addi instruction. Then I stored that value into a data memory location, sw t1 0(t2). This stored the value with register t1 (0x001 from previous addi instruction) into the data memory address 0(t2), this means the value in register t2+0 offset so that would store in data memory location 0x1000 from previous addi instruction. In was important that i only accessed memory from the allowed range of data memory addresses from the project brief. 
@@ -181,35 +171,9 @@ The output was 0x001 into a0 which was as expected proving the lw and sw instruc
 <img width="526" alt="Screenshot 2022-12-11 at 12 37 16" src="https://user-images.githubusercontent.com/115703122/206903968-30cd4bf0-a8a6-4c4b-aa8c-ae1ee53187ce.png">
 
 ### Shift - Riya 
-When creating the shift I made an orirginal version, which consisted of adding an additional module which would take RD1 into a shift module, and if shift select was high then RD1 would be shifted to the left by one bit. The diagram and implementation of the first version of shift is shown below:
+When creating the shift I made an orirginal version, which consisted of adding an additional module which would take RD1 into a shift module, and if shift select was high then RD1 would be shifted to the left by one bit. The diagram and implementation of the final version of shift is shown below:
 
 For our F1 machine code we used a slli instruction which was a logical shift left, in order to implement this orginallly I added the shift instruction to the control signal, so that for the shift opcode and function 3 a shift select would be set high which would set a multiplexer at the end of the cpu to the value in RD1 concanticated one bit to the left.
-
-<img width="531" alt="Screenshot 2022-12-14 at 11 36 42" src="https://user-images.githubusercontent.com/115703122/207585153-2d7e218a-1049-4e5e-987d-cef1c89cb810.png">
-
-Here is the new control unit instruction:
-
-<img width="402" alt="Screenshot 2022-12-14 at 13 11 29" src="https://user-images.githubusercontent.com/115703122/207604251-1c1998ff-5d54-4f6c-9636-bb893e520146.png">
-
-Shift select added to the control unit used for shift mux:
-
-<img width="365" alt="Screenshot 2022-12-14 at 13 24 19" src="https://user-images.githubusercontent.com/115703122/207606945-d095c82e-d004-4752-88de-143084632712.png">
-
-**Inside Shift Module:**
-
-The Shift module takes in the value of RD1 and concatinates the 32 bits in order to implement the shift.
-
-<img width="744" alt="Screenshot 2022-12-14 at 13 12 43" src="https://user-images.githubusercontent.com/115703122/207604517-a5f3ea9a-3937-448a-93ca-e99a150fdfce.png">
-
-**Shift Mux:**
-
-<img width="710" alt="Screenshot 2022-12-14 at 13 25 22" src="https://user-images.githubusercontent.com/115703122/207607143-8e7fa74f-7c37-4c1e-a3b4-112494272a73.png">
-
-**Issues with this version:**
-- Using a shift module meant that the were additions to the architecture such as mux's and a shift module which are unnessary and overly compilicated.
-- The architecture could only implement a shift by 1 bit and did not fufil the requirements of the instruction to shift by ImmOp.
-- Using a concantination to shift was inefficient and its better to use the inbuilt shift operator.
-- It was difficult to combine this shift implementation with the jump additions.
 
 **Final version:**
 The final version involed setting ALUctrl in s shift operation to 001 so that the shift can be implemented inside the ALU module.
