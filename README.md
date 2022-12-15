@@ -281,6 +281,7 @@ Pipelining was divided into two parts, firstly we created **four individual pipe
 In the first fetch stage, we moveed the adder and multiplexer from execute stage with inputs PCE, ImmExtE, ALUout from datapath since they are combinational logic. This indicates whether the next instruction is branched, jumped or returned.
 
 ![image](https://user-images.githubusercontent.com/69693952/207877364-756c3478-1979-444a-872e-34bfd6e2bed4.png)
+<img width="230" alt="https://user-images.githubusercontent.com/69693952/207877364-756c3478-1979-444a-872e-34bfd6e2bed4.png">
 
 We also have slight changes on control path. Rather than implementing AND, OR gates, we have combined branch and jump select inside the control unit with an EQ input to a single PCsrc output. PCsrc then is used to indicate the next Program address. A seperated jalrsel is added in the control unit which go along with the control path and is used in execute stage to choose PCE + ImmExtE if it is jalr instruction.
 
