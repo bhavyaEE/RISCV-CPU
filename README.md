@@ -278,6 +278,8 @@ In order to test the F1 light sequence cpu, we ran the machine code (shown in ab
 
 Pipelining was divided into two parts, firstly we created **four individual pipeline registers**, as shown on the diagram. On each clock cycle, signals move from stage to stage with the same purpose but different instructions. They are distinguished by different suffixes, e.g. D, E, to indicate which stage the signal has reached. In modules, the output signals are given with the input signals synchronously on rising edge of the CLK. In pipe2, control unit was kept the same except that all the control signals are also be pipelined, to arrive in synchrony to the datapath. This ensures that control signals can travel with the data, providing the correct signal to control each stage.
 
+After completing the registers, the **five stages** were creating as top level modules with all blocks and pipeline registers inserted.
+
 In the first fetch stage, we moveed the adder and multiplexer from execute stage with inputs PCE, ImmExtE, ALUout from datapath since they are combinational logic. This indicates whether the next instruction is branched, jumped or returned.
 
 <img width="400" alt="Screenshot 2022-12-13 1" src="https://user-images.githubusercontent.com/69693952/207877364-756c3478-1979-444a-872e-34bfd6e2bed4.png">
@@ -290,9 +292,9 @@ We have noticed that we need to change the posedge clk to negedge while writing 
 
 <img width="200" alt="Screenshot 2022-12-13 3" src="https://user-images.githubusercontent.com/69693952/207884431-a861f3b0-1ae1-4e30-a5b4-98f30428d540.png">
 
-After completing the registers, the **five stages** were creating as top level modules with all blocks and pipeline registers inserted.
+There was a change in Write back stage multiplexer as well. Our ResultSrc was only one bit originally therefore we tried to implement two multiplexers with one bit selects: jalsel and Resultsrc as following image.
 
-
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/69693952/207888024-d0452559-32c9-47a6-abe1-60bc14ae994a.png">
 
 *Hazard*:
 
