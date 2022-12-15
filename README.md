@@ -24,7 +24,7 @@ When splitting the tasks we decided to work in pairs for machine code and implem
 - Machine Code - Isabel and Ethan
 - Implementation of Machine Code - Riya and Bhavya 
 - Reference Code implementation - Riya and Bhavya 
-- Piplining - Isabel and Ethan
+- Pipelining - Isabel and Ethan
 
 ## Machine Code 
 
