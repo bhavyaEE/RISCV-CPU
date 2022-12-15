@@ -268,6 +268,46 @@ In order to test the F1 light sequence cpu, we ran the machine code (shown in ab
 
 ## Reference Program - Bhavya and Riya
 
+Since the reference code included Load Byte Unsigned and Store Byte instructions we needed to add these in since we had only implemented Load Word and Store Word earlier. 
+This meant that we needed to enable byte addressing within data memory as evidenced below. The main changes required were the width parameters within the module and setting the least significant byte of the register value equal to a specific byte instead of a word. In the case of load word, the changes made were to concatenate individual bytes to form a word.
+![image](https://user-images.githubusercontent.com/107200668/207978996-6bba8f5b-2b28-4ebd-99cb-3b1dbdd23fdd.png)
+
+There was also an additional signal added taking the bits of funct3 from the control unit outlined above as ‘funct3_LS’ to help distinguish between a loading or storing a byte or word respectively as that was the main difference noted in the instruction format between the byte/word versions. LD_EN is also set by a control unit signal of ResultSrc (initially 1 bit and HIGH when load instruction). 
+Since the load byte was specified to be unsigned, this meant that it would need to be zero extended before being put in the register: 
+
+![image](https://user-images.githubusercontent.com/107200668/207979090-312dd46f-18cc-422f-98a1-9d29ee4881fa.png)
+
+The explanation regarding design choices on selecting a specific byte from the instruction format and selecting bytes to form a word are outlined in the self-reflection account below. 
+
+## Self-reflection on Reference Program Instructions (LBU + SB) design choices (Bhavya): 
+The diagram below outlines how I visualised the memory to be split up into bytes from a word. Once we realised that the only way to implement these instructions was to make the data memory byte addressed, it was quite clear that the specific byte to be addressed would simply be the value of the Immediate + RS1 in the case of an LBU. 
+
+![image](https://user-images.githubusercontent.com/107200668/207979183-85bfd8e8-b6cb-4563-91b3-6078d16bddd5.png)
+
+The main design choices came into play for selecting a word either to be loaded into a register or a word to be stored into memory since the instruction: Imm + RS1 would still give a number which corresponds to a byte. 
+Therefore to select a word, 2 possible design choices were considered: 
+1.	Start at the byte specified and offset from there 1,2 and 3 to concatenate consecutive bytes to form a word, i.e. if Imm + Rs1 = 5: 
+Corresponding Word: Bytes {5,6,7,8}
+2.	Regardless of which byte was selected, the word selected should correspond to the word indicated in the table above; since this matched the previous word addressing format this option was selected. 
+Corresponding Word: Bytes {4,5,6,7}
+In order to implement Option 2, an algorithm/formula was needed to always start from byte 0,4,8,12 etc. to concatenate the correct bytes to form a word. 
+
+I enabled this as follows: 
+ALUOut = Imm + Rs1
+Var1 = ALUout % 4
+Var2 = ALUOut – var1 (to offset backwards by the remainder found by the modulus function) 
+Example: 
+Let ALUOut = 7; var1 = 3; var2 = 7-3 = 4
+Thus, addressing is as follows: [var2 (byte 4)] + [var2 + 1 (byte 5)] + [var2 + 2 (byte 6)] + [var2 + 3 (byte 7)]
+![image](https://user-images.githubusercontent.com/107200668/207979275-3957d3a6-3f22-44ce-aef2-8191b07912bf.png)
+
+The final input regarding concatenation lies in load word; it begins from the offset of 3 and decreases. The reason for this is demonstrated through the diagram below; this helped me to understand the idea of design implementation regarding how the computer reads data/how it is visualised in the programmer’s mind. 
+
+![image](https://user-images.githubusercontent.com/107200668/207979469-b00fde20-1a0d-4ed4-b4dc-08f12ce2dd11.png)
+
+Illustrated through outputs on gtkwave: 
+
+
 ## Pipelining - Ethan and Isabel
 
 ![3901671112433_ pic](https://user-images.githubusercontent.com/69693952/207876411-630165c6-5249-4d3d-bbbc-494151a4d382.jpg)
