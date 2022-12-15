@@ -288,6 +288,11 @@ We also have slight changes on control path. Rather than implementing AND, OR ga
 
 After completing the registers, the **five stages** were creating as top level modules with all blocks and pipeline registers inserted.
 
+We have noticed that we need to change the posedge clk to negedge while writing register file. This is because in order to make it efficient we do not want to add another pipeline register with register file and we can simply write data at negative clock edge.
+
+https://github.com/EIE2-IAC-Labs/iac-riscv-cw-11/blob/main/pipe.jpeg![image](https://user-images.githubusercontent.com/69693952/207883787-1c78b22b-70b3-4a07-b03a-ed28c86f3af1.png)
+
+
 *Hazard*:
 
 To avoid pipelining hazard, instead of adding hazard unit, we chose to add NOP instructions to ensure that register values have already be written back to register file, and the next instruction has been decided (in **Branch** situation). This is shown in detail in **Machine Code Explaination** previously.
