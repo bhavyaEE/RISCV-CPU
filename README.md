@@ -274,9 +274,17 @@ In order to test the F1 light sequence cpu, we ran the machine code (shown in ab
 
 ## Pipelining - Ethan and Isabel
 
-![image](https://github.com/EIE2-IAC-Labs/iac-riscv-cw-11/blob/main/pipe.jpeg)
+![3901671112433_ pic](https://user-images.githubusercontent.com/69693952/207876411-630165c6-5249-4d3d-bbbc-494151a4d382.jpg)
 
 Pipelining was divided into two parts, firstly we created **four individual pipeline registers**, as shown on the diagram. On each clock cycle, signals move from stage to stage with the same purpose but different instructions. They are distinguished by different suffixes, e.g. D, E, to indicate which stage the signal has reached. In modules, the output signals are given with the input signals synchronously on rising edge of the CLK. In pipe2, control unit was kept the same except that all the control signals are also be pipelined, to arrive in synchrony to the datapath. This ensures that control signals can travel with the data, providing the correct signal to control each stage.
+
+In the first fetch stage, we moveed the adder and multiplexer from execute stage with inputs PCE, ImmExtE, ALUout from datapath since they are combinational logic. This indicates whether the next instruction is branched, jumped or returned.
+
+![image](https://user-images.githubusercontent.com/69693952/207877364-756c3478-1979-444a-872e-34bfd6e2bed4.png)
+
+We also have slight changes on control path. Rather than implementing AND, OR gates, we have combined branch and jump select inside the control unit with an EQ input to a single PCsrc output. PCsrc then is used to indicate the next Program address. A seperated jalrsel is added in the control unit which go along with the control path and is used in execute stage to choose PCE + ImmExtE if it is jalr instruction.
+
+![image](https://user-images.githubusercontent.com/69693952/207880674-1e6c49e6-68e9-418d-b78b-9486eb7fdd6b.png)
 
 After completing the registers, the **five stages** were creating as top level modules with all blocks and pipeline registers inserted.
 
