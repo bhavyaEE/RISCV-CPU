@@ -305,6 +305,8 @@ NB: refer to Control Unit.sv inside Jump branch
 
 There were further iterations of the control unit to put the signals affected by EQ outside the combinational loop as a special case and then put the 2 separate combinational loops into 1, which then removed the need for this signal - this was done within the Merge Jump and Shift Branch. 
 
+Other changes made were adding mutliplexers to the PC and ALU (regfile) unit to control what was being written to the register (PC + 4) and to the PC (PC + Imm) under the right conditions by using appropriate enable signals (elaborated upon in personal statement). 
+
 ### Merging Jump and Shift
 
 Once the new arcitecture for data memory, jump and shift were created on separate branches we then had to merge all the branches together. This included the following changes:
