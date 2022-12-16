@@ -352,9 +352,13 @@ The explanation regarding design choices on selecting a specific byte from the i
 
 Created a small section of machine code to test individual instructions: 
 
+![image](https://user-images.githubusercontent.com/107200668/208207997-c70b382d-bd46-4eaa-b058-afba8cdf1c30.png)
+
 GtkWave outputs: 
 
-Implementing Add instruction:
+![image](https://user-images.githubusercontent.com/107200668/208208020-66a90cc6-da97-4761-a6c5-ebbbe9658298.png)
+
+**Implementing Add instruction:**
 
 1) We added it to the control unit:
 
@@ -394,7 +398,7 @@ There was a change in Write back stage multiplexer as well. Our ResultSrc was on
 
 <img width="550" alt="image" src="https://user-images.githubusercontent.com/69693952/207888024-d0452559-32c9-47a6-abe1-60bc14ae994a.png">
 
-There were no problematic errors when we test the pipeline implementation, nearly all of them are repeated errors which were mentioned above. Debugging with Reference Code will be the followings.
+Most of the errors were repeated errors which were mentioned above and any further changes needed to fix the few errors are outlined in the Debugging section below. 
 
 *Hazard*:
 
