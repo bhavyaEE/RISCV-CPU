@@ -2,7 +2,24 @@
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Design Choices:
+
 ## 1. F1 Program Instructions (Jump)
+
+The basic JAL implementation is outlined in the main README of adding signals to control unit. In this section, I will describe the issues/ideas considered during implementation: 
+
+I started off by looking at the ISA to understand how the bits were split in the instruction:
+![image](https://user-images.githubusercontent.com/107200668/208124106-0283f30e-d1f9-4f10-a43d-9f772161a078.png)
+![image](https://user-images.githubusercontent.com/107200668/208124353-d531664e-167c-4e5d-933e-8d7b643d9937.png)
+
+
+![image](https://user-images.githubusercontent.com/107200668/208124598-67978c8a-a19a-4644-8fad-2a9bc515fa35.png)
+![image](https://user-images.githubusercontent.com/107200668/208124618-998f48ed-5d6f-4771-8b09-7f04b19a8fc8.png)
+
+I was unsure of the bits used in the offset when looking at the ISA in the two pictures for the bits used in the immediate and the immediate bits used in the instruction. Hence, why the earlier commits have the extra lines: 
+![image](https://user-images.githubusercontent.com/107200668/208125201-e54cc067-f7a6-4dc7-bedf-e14523555a5c.png)
+
+
+
 ## 2. Reference Program Instructions (LBU + SB)
 
 The diagram below outlines how I visualised the memory to be split up into bytes from a word. Once we realised that the only way to implement these instructions was to make the data memory byte addressed, it was quite clear that the specific byte to be addressed would simply be the value of the Immediate + RS1 in the case of an LBU. 
