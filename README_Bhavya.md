@@ -5,9 +5,11 @@
 
 ## 1. F1 Program Instructions (Jump)
 
-The basic JAL implementation is outlined in the main README of adding signals to control unit. In this section, I will describe the issues/ideas considered during implementation: 
+The basic JAL implementation is outlined in the main README of adding signals to control unit. 
+In this section, I will describe the issues/ideas considered during implementation. 
+**Each stage was realised through creating small machine code instructions to check if jumps were happening and viewing on gtk wave to see which signals were going high/low compared to what should happen to understand what further changes were required. **
 
-I started off by looking at the ISA to understand how the bits were split in the instruction:
+1. I started off by looking at the ISA to understand how the bits were split in the instruction:
 ![image](https://user-images.githubusercontent.com/107200668/208124106-0283f30e-d1f9-4f10-a43d-9f772161a078.png)
 ![image](https://user-images.githubusercontent.com/107200668/208124353-d531664e-167c-4e5d-933e-8d7b643d9937.png)
 
@@ -15,9 +17,21 @@ I started off by looking at the ISA to understand how the bits were split in the
 ![image](https://user-images.githubusercontent.com/107200668/208124598-67978c8a-a19a-4644-8fad-2a9bc515fa35.png)
 ![image](https://user-images.githubusercontent.com/107200668/208124618-998f48ed-5d6f-4771-8b09-7f04b19a8fc8.png)
 
-I was unsure of the bits used in the offset when looking at the ISA in the two pictures for the bits used in the immediate and the immediate bits used in the instruction. Hence, why the earlier commits have the extra lines: 
+I was unsure of the bits used to offset when looking at the ISA in the two pictures above for the instruction bits used to make the immediate and the immediate bits used in the instruction. Hence, why the earlier commits have the extra lines in Sign Extend: 
 ![image](https://user-images.githubusercontent.com/107200668/208125201-e54cc067-f7a6-4dc7-bedf-e14523555a5c.png)
 
+In the next commit: "added correct offset and extra signals" I understood the correct way to encode the immediate in order to offset the PC for the jump which was to take the specified bits in the instruction: 
+![image](https://user-images.githubusercontent.com/107200668/208126775-be3312e4-1ce1-4247-9cb2-c703f46eaf1e.png)
+
+2. The value from the jalr offset was outputted through ALUOut since it is Imm + RS1 and needed to be fed into PC so I added a 'sum' wire to link the two modules in the top level. For the purposes of RET this may not have been required since the offset is usually zero, but in order to follow the function of a JALR I took the output from the ALU. 
+3. In order to set the value of PC equal to the addresses from the jal/jalr/bne instructions I added the following logic in the top level PC module (jalrsel signal was also added to Control Unit and connected through to relevant modules in the 'added correct offset, extra signals' commit. 
+
+The previous branch_PC multiplexer was changed such that branch_PC would equal 'sum' in the case of a JALR instruction, else branch_PC = 'PC + Imm' [jump_PC]  if it was a jump or branch. This then fed into the next_PC multiplexer as normal so choose between incrementing or jumping/branching. 
+
+![image](https://user-images.githubusercontent.com/107200668/208128800-abd706b8-0c9f-4fad-ae0b-6b426ba45618.png)
+
+4. The final addition made was to write the correct value to the register in a JAL to store the address of the next instruction; this required changing the input to WriteData input in Regfile in top level ALU module to equal 'PC + 4' or ALUOut (additional jal enable signal added to serve as select line in this mux). 
+![image](https://user-images.githubusercontent.com/107200668/208129726-c685facf-17c4-4877-9693-0d425db5867e.png)
 
 
 ## 2. Reference Program Instructions (LBU + SB)
