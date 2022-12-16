@@ -294,10 +294,12 @@ The ouput resulted in a0 outputting a value of 0xFF shifted by 1 with a 0 last b
 ### Jump - Bhavya
 
 I added relevant signals to the control unit for a JAL and RET implemented as a JALR with rd set as x0 since it is not necessary to store the value of the register: 
+
 ![image](https://user-images.githubusercontent.com/107200668/208121834-77e52f5d-5de3-4cbd-9c55-620f9fd707d6.png)
+
 Since at this point we had 2 combinational loops the RegWrite was being set back down to low in the default case of the second loop. Hence, a signal jregen was added to set it equal to RegWrite so that if a JAL was taking place, the RegWrite doesn't get defaulted back to low: 
 
-NB: refer to Control Unit Jump branch
+NB: refer to Control Unit.sv inside Jump branch
 
 ![image](https://user-images.githubusercontent.com/107200668/208122208-1b225ad6-6448-4c6e-8cd3-4ce0dd8a98ad.png)
 ![image](https://user-images.githubusercontent.com/107200668/208122230-4f1e2022-6c08-43ed-a176-0956e9e3c118.png)
