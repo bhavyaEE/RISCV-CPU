@@ -104,7 +104,7 @@ When splitting the tasks we decided to work in pairs for machine code and implem
 - Reference Code implementation - Riya and Bhavya 
 - Pipelining - Isabel and Ethan
 
-## Machine Code - Isbael and Ethan
+## Machine Code - Isabel and Ethan
 
 Instructions:
 
