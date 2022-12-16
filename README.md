@@ -4,6 +4,8 @@
 
 Instead of rtl folders, we have uploaded our final code onto separate branches depending on the task - please note that the branches supporting reference code programs will also work for the F1 program; the reason for 4 different branches to separate the tasks is due to the differing Instruction Memory files and testbenches for F1 vs Reference. 
 
+The file inside Data Memory.sv that is read will need to be changed manually to output the PDF for the different .mem files (Gaussian, sine, noisy, triangle).
+
 The branches to look at are as follows:
 
 **Single Cycle CPU for F1:**
@@ -20,7 +22,7 @@ Folder: test
 
 Description and Contributors: 
 
-Single cycle CPU with additional instructions to support the implementation of the reference code. The basic structure was largely taken from Lab4 work with additional instructions of Jump and Shift done by Bhavya and Riya.
+Single cycle CPU with additional instructions to support the implementation of the reference code. The basic structure was largely taken from Lab4 work with additional instructions of Jump and Shift done by Bhavya and Riya. The 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -42,6 +44,8 @@ Description and Contributors:
 
 Working Pipelined CPU which successfully implements Reference Program (with NOPs). 
 This branch was used to debug the changes made from the Pipeline branches referenced below; these were worked on by Isabel and Ethan to implement the structural changes for pipelining and adding new modules to achieve this. This branch contains that structural basis with further code additions and changes made during the debugging process to resolve errors which were done by Bhavya and Riya.
+
+Only the .vcd file for Gaussian PDF waveform has been uploaded since the other files were too large to upload, however the video files for all the waveforms are on the Google Drive. 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
