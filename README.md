@@ -273,6 +273,22 @@ Since the load byte was specified to be unsigned, this meant that it would need 
 
 ![image](https://user-images.githubusercontent.com/107200668/207979090-312dd46f-18cc-422f-98a1-9d29ee4881fa.png)
 
+Implementing Add instruction:
+
+1) We added it to the control unit:
+
+<img width="196" alt="Screenshot 2022-12-15 at 16 56 18" src="https://user-images.githubusercontent.com/115703122/207921178-b21b659e-dbc8-4dfa-8982-fc170fc559c7.png">
+
+Implementing LUI instruction:
+
+1) We needed to add the instruction to the control unit, adding an additional signal called LUI_EN:
+
+<img width="498" alt="Screenshot 2022-12-15 at 16 55 58" src="https://user-images.githubusercontent.com/115703122/207921088-5bb22053-da5d-4e79-ac8f-21b34ed9ac91.png">
+
+2) LUI_EN was fed into the RegFile.sv module, and used to either feed through ImmOP from the sign extend into a register or if theres no LUI instruction then feed through write data:
+
+<img width="605" alt="Screenshot 2022-12-15 at 16 55 35" src="https://user-images.githubusercontent.com/115703122/207920982-6fe32901-d5bb-440a-a1eb-898eebdbc6ab.png">
+
 The explanation regarding design choices on selecting a specific byte from the instruction format and selecting bytes to form a word are outlined in the self-reflection account below. 
 
 ## Self-reflection on Reference Program Instructions (LBU + SB) design choices (Bhavya): 
@@ -300,6 +316,7 @@ Thus, addressing is as follows: [var2 (byte 4)] + [var2 + 1 (byte 5)] + [var2 + 
 The final input regarding concatenation lies in load word; it begins from the offset of 3 and decreases. The reason for this is demonstrated through the diagram below; this helped me to understand the idea of design implementation regarding how the computer reads data/how it is visualised in the programmer’s mind. 
 
 ![image](https://user-images.githubusercontent.com/107200668/207979469-b00fde20-1a0d-4ed4-b4dc-08f12ce2dd11.png)
+
 
 Illustrated through outputs on gtkwave: 
 
