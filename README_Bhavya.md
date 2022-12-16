@@ -1,6 +1,7 @@
 ## Individual account + reflections - Bhavya Sharma
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**Reference Program Instructions (LBU + SB) design choices:**
+## Reference Program Instructions (LBU + SB) design choices:
 
 The diagram below outlines how I visualised the memory to be split up into bytes from a word. Once we realised that the only way to implement these instructions was to make the data memory byte addressed, it was quite clear that the specific byte to be addressed would simply be the value of the Immediate + RS1 in the case of an LBU. 
 
