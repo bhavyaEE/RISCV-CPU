@@ -150,4 +150,4 @@ Key changes:
 ![image](https://user-images.githubusercontent.com/107200668/208192009-2afd334d-5ca5-4099-9779-1aeaf3ffefcc.png)
 ![image](https://user-images.githubusercontent.com/107200668/208193466-b5e27d97-6a81-436b-925e-f45822d795a4.png)
 
-The rest of the debugging was mostly ensuring all relevant trigger signals were carried across to all stages, and ensuring consistency in the module hierarchies of inputs/outputs. 
+The rest of the debugging was mostly ensuring all relevant trigger signals were carried across to all stages, and ensuring consistency in the module hierarchies of inputs/outputs; Riya and I collaborated together for the debugging parts, discussing ideas for implementation through drawing diagrams and viewing waveforms on gtkwave. 
