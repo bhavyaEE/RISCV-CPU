@@ -30,7 +30,7 @@ Single cycle CPU with additional instructions to support the implementation of t
 
 Description and Contributors: 
 
-Working F1 light sequence machine code on a Pipelined CPU; pipelining structure worked on by Ethan and Isable, debugging and resulting changes made by Bhavya and Riya.
+Working F1 light sequence machine code on a Pipelined CPU; pipelining structure worked on by Ethan and Isabel, additional changes resulting from debugging and were made by Bhavya and Riya (outlined in MAIN README).
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -59,7 +59,14 @@ leftshift - Left shift for F1 - done by Riya.
 
 jump - Jump for F1 -  done by Bhavya.
 
-Working Test Cases:
+**USER INFO:
+Student Name; CID; Imperial Email ID; GitHub usernames; GitHub email for each contributor:**
+
+Bhavya Sharma; 02022359; bs921@ic.ac.uk; bhavyaEE (also committed with username root in some branches due to git config not setup in earlier stages); bs921@ic.ac.uk/107200668+bhavyaEE@users.noreply.github.com
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Evidence for Test Results (Videos and vcd files) can be accessed here: 
 
 https://drive.google.com/drive/folders/1RkyJlid2Hxn82E2YL0H5fLzyGT9P4sm4?usp=share_link
 
