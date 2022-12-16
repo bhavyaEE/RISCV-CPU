@@ -9,7 +9,7 @@ Through this coursework, I thoroughly understood the structure and design to imp
 
 -	Testing each change/instruction in a modular format by creating a dummy set of instructions then expanding to a larger test case and testing with the final machine code. 
 
--	My approach and mindset towards solving a problem was also enhanced by continuing to probe deeper whilst debugging, looking at every signal, going back and understanding what each value should be vs what it actually is and then digging deeper again to figure out why that is happening to reach the solution. 
+-	My approach and mindset towards solving a problem was also enhanced by continuing to probe deeper whilst debugging, looking at every signal, going back and understanding what each value should be vs what it actually is and then digging deeper again to figure out why that is happening to reach the solution; as opposed to changing around a few signals in a trial and error method. 
 
 **What I would've done differently:**
 
@@ -126,6 +126,8 @@ Initially an assign statement was used to set reg_array[0] = 0; however, I remem
 
 - ![image](https://user-images.githubusercontent.com/107200668/208074780-41c5ba6d-0db8-4af1-a18b-9c52c6f91f49.png)
 
+To add new instructions key changes were made to the Control Unit and Sign extend module. 
+
 ## 3. Pipelining F1 + Reference Program - Debugging Process
 
 Key changes: 
@@ -135,7 +137,7 @@ Key changes:
 ![image](https://user-images.githubusercontent.com/107200668/208191516-ab497ece-12b7-4198-aafa-28ab89f7dd3e.png)
 ![image](https://user-images.githubusercontent.com/107200668/208193443-18f6ed7e-e072-468f-9925-7ff01eb8163f.png)
 
-Again to match the pipelined diagram, the AND/OR logic to feed into PCSrcE was added along with BranchSel and JumpSel signals. 
+3. Again to match the pipelined diagram, the AND/OR logic to feed into PCSrcE was added along with BranchSel and JumpSel signals; this also meant EQ was no longer governing PCsrc inside the Control Unit enabling that module to be tidied up. 
  
 ![image](https://user-images.githubusercontent.com/107200668/208192009-2afd334d-5ca5-4099-9779-1aeaf3ffefcc.png)
 ![image](https://user-images.githubusercontent.com/107200668/208193466-b5e27d97-6a81-436b-925e-f45822d795a4.png)
