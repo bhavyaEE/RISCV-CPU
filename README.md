@@ -236,8 +236,6 @@ Top Level ALU mux:
 
 In the top level ALU i included the logic for the mux, this will load the read data into the register file if a load instruction is detected (ResultSrc is high), else it will simply output ALUout. 
 
-<img width="471" alt="Screenshot 2022-12-11 at 12 49 28" src="https://user-images.githubusercontent.com/115703122/206904515-cada2c3e-320b-4e9c-85c3-462deaaee4ee.png">
-
 Testing:
 
 In order to test the load and store word instructions, I first had to understand the instruction format. As load and store are register addressed I had to load values into a register using an addi instruction. Then I stored that value into a data memory location, sw t1 0(t2). This stored the value with register t1 (0x001 from previous addi instruction) into the data memory address 0(t2), this means the value in register t2+0 offset so that would store in data memory location 0x1000 from previous addi instruction. In was important that i only accessed memory from the allowed range of data memory addresses from the project brief. 
