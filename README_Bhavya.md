@@ -32,7 +32,7 @@ The previous branch_PC multiplexer was changed such that branch_PC would equal '
 ![image](https://user-images.githubusercontent.com/107200668/208128800-abd706b8-0c9f-4fad-ae0b-6b426ba45618.png)
 
 4. The final addition made was to write the correct value to the register in a JAL to store the address of the next instruction; this required changing the input to WriteData input in Regfile in top level ALU module to equal 'PC + 4' or ALUOut (additional jal enable signal added to serve as select line in this mux). 
-5. 
+
 ![image](https://user-images.githubusercontent.com/107200668/208129726-c685facf-17c4-4877-9693-0d425db5867e.png)
 
 
@@ -73,7 +73,11 @@ The final input regarding concatenation lies in load word; it begins from the of
 Illustrated through outputs on gtkwave: 
 
 
-## 3. Pipelining F1 Program (Jump Logic Changes)
+## 3. Pipelining F1 Program 
+
+When testing and debugging a key observation I made was that the zero register was actually being written to in a jalr instruction and when I used the zero register to test the ADD instruction for the Reference Program the outputs were incorrect. 
+Initially an assign statement was used to set reg_array[0] = 0; however, I remembered from work in the previous labs that the 'assign' would not mean that the zero register doesn't get overwritten so I changed the condition for writing to a register from only dependent on WE HIGH to WE HIGH & AD3 !=0 meaning if the register to be written to was ever x0 then a write operation would NOT take place. 
+
 Other general stuff for final conclusion: 
 - Hardwired x0 register
 - ![image](https://user-images.githubusercontent.com/107200668/208074780-41c5ba6d-0db8-4af1-a18b-9c52c6f91f49.png)
