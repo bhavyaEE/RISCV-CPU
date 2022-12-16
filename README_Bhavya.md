@@ -48,10 +48,6 @@ In this section, I will describe the issues/ideas considered during implementati
 
 1. I started off by looking at the ISA to understand how the bits were split in the instruction:
 ![image](https://user-images.githubusercontent.com/107200668/208124106-0283f30e-d1f9-4f10-a43d-9f772161a078.png)
-![image](https://user-images.githubusercontent.com/107200668/208124353-d531664e-167c-4e5d-933e-8d7b643d9937.png)
-
-
-![image](https://user-images.githubusercontent.com/107200668/208124598-67978c8a-a19a-4644-8fad-2a9bc515fa35.png)
 ![image](https://user-images.githubusercontent.com/107200668/208124618-998f48ed-5d6f-4771-8b09-7f04b19a8fc8.png)
 
 I was unsure of the bits used to offset when looking at the ISA in the two pictures above for the instruction bits used to make the immediate and the immediate bits used in the instruction. Hence, why the earlier commits have the extra lines in Sign Extend: 
@@ -109,6 +105,9 @@ Illustrated through outputs on gtkwave:
 
 ![image](https://user-images.githubusercontent.com/107200668/208199619-8b982243-6206-474d-8861-81707ed0db37.png)
 
+**Load Byte Unsigned: **
+
+![image](https://user-images.githubusercontent.com/107200668/208199010-66317afa-4367-491f-a705-e84a139b1fa5.png)
 
 I also realised that due to the reset while i<3 condition in the testbench, I needed a NOP before an addi instruction otherwise, it would keep repeating thrice as PC would not increment. 
 
@@ -122,6 +121,7 @@ Correct output after NOP:
 
 
 **ADD Instruction** 
+
 As outlined in the main, we realised during Reference Program testing that we had only implemented an ADDI instruction and not an ADD. 
 A key observation I made during this implementation was that: the zero register was actually being written to in a jalr instruction and when I used the zero register to test the ADD instruction for the Reference Program, the outputs were incorrect. 
 
