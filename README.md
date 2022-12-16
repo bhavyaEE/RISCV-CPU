@@ -1,16 +1,32 @@
 # iac-riscv-cw-11
 
-## Note for Examinars
+## Note for Examiners
 
-Instead of rtl files, we have uploaded our final code onto separate branches depending on the task. The branches to look at are as follows:
+Instead of rtl files, we have uploaded our final code onto separate branches depending on the task - please note that the branches supporting reference code programs will also work for the F1 program; the reason for 4 different branches to separate the tasks is due to the differing Instruction Memory files and testbenches. 
 
-**Working-Pipeline-with-Reference-Code** - This is our final working cpu for a working pipelined cpu that implements the reference code. The pipelining was done by Isabel and Ethan. The implementation of additional instructions for reference code was done by Bhavya and Riya.
+The branches to look at are as follows:
 
-**Working-pipelined-F1** - This is our working cpu for pipelined F1 light sequence. The machine code was created by Isabel and Ethan and the implementation was done by Riya and Bhavya. 
+**Single Cycle CPU for F1: **
+**Branch: Main **
+Folder: test
 
-**WorkingF1** - Working F1 light sequence machine code and cpu implemented. Worked on by Bhavya and Riya.
+**Single Cycle CPU for Reference Code: **
+**Branch: Working-Pipeline-with-Reference-Code**
 
-**NonPipelinedReferenceCode** - Working reference programme cpu. Worked on by Bhavya and Riya.
+Description and Contributors: 
+This is our final working cpu for a working pipelined cpu that implements the reference code. The pipelining was done by Isabel and Ethan. The implementation of additional instructions for reference code was done by Bhavya and Riya.
+
+**Pipelined CPU for F1 Program: **
+**Branch: WorkingF1**
+Description and Contributors: 
+Working F1 light sequence machine code and CPU implemented. Worked on by Bhavya and Riya.
+
+**Pipelined CPU for Reference Code: **
+**Branch:NonPipelinedReferenceCode** 
+
+Description and Contributors: 
+Working Pipelined CPU which successfully implements Reference Program (with NOPs). 
+This branch was used to debug the changes made in order to pipeline from the branches referenced below which were implemented by Isabel and Ethan. The current branch resolved errors during the debugging process by making changes outlined in the MAIN README - this was done by Bhavya and Riya.
 
 Additional Branches:
 
@@ -20,7 +36,7 @@ PipelineVersion2 - Pipelined version during debugging - done by Isabel and Ethan
 
 DataMemoryVersion1 - Data Memory implemented during debugging - done by Riya.
 
-DataMemoryVersion1 - Data memory for F1 - done by Riya.
+DataMemoryVersion2 - Data memory for F1 - done by Riya.
 
 leftshift - Left shift for F1 - done by Riya.
 
@@ -273,6 +289,8 @@ Since the load byte was specified to be unsigned, this meant that it would need 
 
 ![image](https://user-images.githubusercontent.com/107200668/207979090-312dd46f-18cc-422f-98a1-9d29ee4881fa.png)
 
+The explanation regarding design choices on selecting a specific byte from the instruction format and selecting bytes to form a word are outlined in the self-reflection account below. 
+
 Implementing Add instruction:
 
 1) We added it to the control unit:
@@ -317,7 +335,6 @@ The final input regarding concatenation lies in load word; it begins from the of
 
 ![image](https://user-images.githubusercontent.com/107200668/207979469-b00fde20-1a0d-4ed4-b4dc-08f12ce2dd11.png)
 
-
 Illustrated through outputs on gtkwave: 
 
 
@@ -358,6 +375,5 @@ Final Cpu Diagram:
 <img width="615" alt="Screenshot 2022-12-14 at 13 35 47" src="https://user-images.githubusercontent.com/115703122/207609285-6f8e4b49-bb37-4e66-ad20-fb92056c159e.png">
 
 <img width="286" alt="Screenshot 2022-12-14 at 13 36 04" src="https://user-images.githubusercontent.com/115703122/207609362-1d8a8493-8773-4a83-9381-67c95edb2343.png">
-
 
 
