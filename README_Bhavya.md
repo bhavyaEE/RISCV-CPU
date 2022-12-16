@@ -63,9 +63,10 @@ In the next commit: "added correct offset and extra signals" I understood the co
 2. The value from the jalr offset was outputted through ALUOut since it is Imm + RS1 and needed to be fed into PC so I added a 'sum' wire to link the two modules in the top level. For the purposes of RET this may not have been required since the offset is usually zero, but in order to follow the function of a JALR I took the output from the ALU. 
 3. In order to set the value of PC equal to the addresses from the jal/jalr/bne instructions I added the following logic in the top level PC module:
 
-![image](https://user-images.githubusercontent.com/107200668/208128800-abd706b8-0c9f-4fad-ae0b-6b426ba45618.png)
+![image](https://user-images.githubusercontent.com/107200668/208202711-1eb15bd6-5cf7-4103-a687-fe5df1600953.png)
 
-4. The final addition made was to write the correct value to the register in a JAL to store the address of the next instruction; this required changing the input to WriteData input in Regfile in top level ALU module to equal 'PC + 4' or ALUOut (additional jal enable signal added to serve as select line in this mux). 
+
+4. The final addition made was to write the correct value to the register in a JAL to store the address of the next instruction; this required changing the input to WD3 input in Regfile in top level ALU module to equal 'PC + 4' or ALUOut (additional jal enable signal added to serve as select line in this mux). 
 
 ![image](https://user-images.githubusercontent.com/107200668/208129726-c685facf-17c4-4877-9693-0d425db5867e.png)
 
