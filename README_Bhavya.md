@@ -32,6 +32,7 @@ The previous branch_PC multiplexer was changed such that branch_PC would equal '
 ![image](https://user-images.githubusercontent.com/107200668/208128800-abd706b8-0c9f-4fad-ae0b-6b426ba45618.png)
 
 4. The final addition made was to write the correct value to the register in a JAL to store the address of the next instruction; this required changing the input to WriteData input in Regfile in top level ALU module to equal 'PC + 4' or ALUOut (additional jal enable signal added to serve as select line in this mux). 
+5. 
 ![image](https://user-images.githubusercontent.com/107200668/208129726-c685facf-17c4-4877-9693-0d425db5867e.png)
 
 
