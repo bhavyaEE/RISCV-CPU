@@ -2,7 +2,7 @@
 
 ## Note for Examiners
 
-Instead of rtl files, we have uploaded our final code onto separate branches depending on the task - please note that the branches supporting reference code programs will also work for the F1 program; the reason for 4 different branches to separate the tasks is due to the differing Instruction Memory files and testbenches. 
+Instead of rtl files, we have uploaded our final code onto separate branches depending on the task - please note that the branches supporting reference code programs will also work for the F1 program; the reason for 4 different branches to separate the tasks is due to the differing Instruction Memory files and testbenches for F1 vs Reference. 
 
 The branches to look at are as follows:
 
