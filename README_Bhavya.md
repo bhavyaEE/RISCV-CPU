@@ -3,7 +3,7 @@
 ## Personal Reflection: 
 **What I learnt:**
 
-Through this coursework, I thoroughly understood the structure and design to implement a RISC-V instruction set architecture and was able to apply the knowledge from the lectures in practice for the design. The key learning points for me were efficiently collaborating in a group, breaking down tasks to achieve the deliverables and developing better debugging skills: 
+Through this coursework, I thoroughly understood the structure and design to implement a RISC-V instruction set architecture and was able to apply the knowledge from the lectures in practice for the design. I was able to efficiently collaborating in a group, by breaking down tasks to achieve the deliverables, and developed better debugging skills through the coursework: 
 
 -	initially the errors were largely to do with combinational loop errors/syntax/bit-width/consistency in naming across all modules but as the design became more complex with more interdependencies of signals per instruction it became more important to use gtkwave to see what was happening in each module and follow the signals along. 
 
