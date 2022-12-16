@@ -11,7 +11,6 @@ Through this coursework, I thoroughly understood the structure and design to imp
 
 -	My approach and mindset towards solving a problem was also enhanced by continuing to probe deeper whilst debugging, looking at every signal, going back and understanding what each value should be vs what it actually is and then digging deeper again to figure out why that is happening to reach the solution. 
 
-- 
 **What I would've done differently:**
 
 Instead of delegating at the start, I believe it would have been more beneficial for the team to discuss and get a very clear understanding of how each module works collectively. Since the modules had interdependencies on each other, the lack of discussion made the debugging process harder since it was assumed that the inputs and outputs were all named/implemented in a standard format - again, setting a framework for this from the beginning would have been useful. Over the course of the project we became significantly better at communicating as a team, having regular Teams calls with the whole team to update each other on the progress, discuss errors and set internal deadlines. 
