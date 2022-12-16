@@ -11,7 +11,7 @@ and combing five pipeline stages with debugging with commit link:<br />
 constructing assembly code and translating to machine code:<br />
 b65d0f3a68fe333876e2048fb727d08bbc6947f3
 
-I worked with Isabel on these sessions during the entire coursework. (the commit link does not fully cover the work i mentioned because I commited one task for multiple times)
+I worked with Isabel on these sessions during the entire coursework. I have only uploaded the main commit I made to illustrate(The commit link does not fully cover the work I mentioned because I commited one task for multiple times)
 
 All of the detail of how we implement and design the cpu with pictures is in our main readme and it explains how we achieved the tasks and special changes we made. In order to avoid repetition, I will focus on talking about the difficulty we faced and how we fix it, the things we learned and what we could have done if we were doing it again
 
