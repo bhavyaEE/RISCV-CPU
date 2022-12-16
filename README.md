@@ -394,8 +394,8 @@ Summary of changes made during debugging:
 
 Final Cpu Diagram:
 
-<img width="615" alt="Screenshot 2022-12-14 at 13 35 47" src="https://user-images.githubusercontent.com/115703122/207609285-6f8e4b49-bb37-4e66-ad20-fb92056c159e.png">
+<img width="917" alt="Screenshot 2022-12-16 at 12 51 57" src="https://user-images.githubusercontent.com/115703122/208102802-4ab40666-954d-4fc1-9d66-0290a5754f95.png">
 
-<img width="286" alt="Screenshot 2022-12-14 at 13 36 04" src="https://user-images.githubusercontent.com/115703122/207609362-1d8a8493-8773-4a83-9381-67c95edb2343.png">
+
 
 
