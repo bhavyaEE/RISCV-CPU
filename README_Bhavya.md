@@ -112,10 +112,10 @@ Illustrated through outputs on gtkwave:
 I also realised that due to the reset while i<3 condition in the testbench, I needed a NOP before an addi instruction otherwise, it would keep repeating thrice as PC would not increment. 
 
 ![image](https://user-images.githubusercontent.com/107200668/208199010-66317afa-4367-491f-a705-e84a139b1fa5.png)
-![image](https://user-images.githubusercontent.com/107200668/208199337-407ccb03-6625-4658-9830-34a1ec9611a6.png)
+![image](https://user-images.githubusercontent.com/107200668/208202452-a7be20d7-1709-458a-a2b1-22205f2c7c01.png)
 
 Correct output after NOP: 
-![image](https://user-images.githubusercontent.com/107200668/208199371-2f647ef3-e2a0-4da9-9de3-689e52047641.png)
+![image](https://user-images.githubusercontent.com/107200668/208202424-543e1f4f-ae37-4382-8466-a76a6d009f97.png)
 
 
 **ADD Instruction** 
