@@ -41,7 +41,7 @@ Working F1 light sequence machine code on a Pipelined CPU; pipelining structure 
 Description and Contributors: 
 
 Working Pipelined CPU which successfully implements Reference Program (with NOPs). 
-This branch was used to debug the changes made in order to pipeline from the branches referenced below which were implemented by Isabel and Ethan. The current branch resolved errors during the debugging process by making changes outlined in the MAIN README - this was done by Bhavya and Riya.
+This branch was used to debug the changes made from the Pipeline branches referenced below; these were worked on by Isabel and Ethan to implement the structural changes for pipelining and adding new modules to achieve this. This branch contains that structural basis with further code additions and changes made during the debugging process to resolve errors which were done by Bhavya and Riya.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
