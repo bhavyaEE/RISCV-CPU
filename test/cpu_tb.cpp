@@ -7,7 +7,6 @@ int main(int argc, char **argv, char **env)
 {
     int i;   // counts the number of clock cycles to simulate
     int clk; // the module clock signal
-    // int lights = 0;
 
     Verilated::commandArgs(argc, argv);
     // init top verilog instance
@@ -22,20 +21,15 @@ int main(int argc, char **argv, char **env)
 
     if (vbdOpen() != 1)
         return (-1);
-    vbdHeader("Lab 4: addi");
+    vbdHeader("RISC-V F1");
     vbdSetMode(0);
 
     // initialize simulation inputs
     top->clk = 0;
     top->rst = 1;
     // run simulation for many clock cycles
-    for (i = 0; i < 100; i++)
-    { // for loop where simulation happens - i counts clock cycles
-        // if(!vbdFlag()) {
-        //     continue;
-        // }
-        // dump vars into VCDfile and toggle clock
-
+    for (i = 0; i < 500; i++)
+    {
         // dump vars into VCDfile and toggle clock
         for (clk = 0; clk < 2; clk++)
         { // for loop to toggle clock and outputs trace for each half of the clock cycle and forces model to evaluate on both edges of clock
@@ -44,13 +38,9 @@ int main(int argc, char **argv, char **env)
             top->eval();
         }
 
-        top->rst = (i < 3);
+        top->rst = (i < 3); // reset at the start to initialise PC and all other values to 0
 
         // Send Count value to vbuddy
-        vbdHex(4, (int(top->a0) >> 12) & 0xF);
-        vbdHex(3, (int(top->a0) >> 8) & 0xF);
-        vbdHex(2, (int(top->a0) >> 4) & 0xF);
-        vbdHex(1, (int(top->a0)) & 0xF);
 
         vbdBar(top->a0);
 
