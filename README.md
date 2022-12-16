@@ -294,8 +294,7 @@ The ouput resulted in a0 outputting a value of 0xFF shifted by 1 with a 0 last b
 ### Jump - Bhavya
 
 I added relevant signals to the control unit for a JAL and RET implemented as a JALR with rd set as x0 since it is not necessary to store the value of the register: 
-
-![image](https://user-images.githubusercontent.com/107200668/208121834-77e52f5d-5de3-4cbd-9c55-620f9fd707d6.png)
+![image](https://user-images.githubusercontent.com/107200668/208125458-9a65af0d-fced-4cb4-8e6d-5c812943ab85.png)
 
 Since at this point we had 2 combinational loops the RegWrite was being set back down to low in the default case of the second loop. Hence, a signal jregen was added to set it equal to RegWrite so that if a JAL was taking place, the RegWrite doesn't get defaulted back to low: 
 
