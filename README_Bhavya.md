@@ -2,20 +2,20 @@
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Personal Reflection: 
 
-**What I learnt: 
+**What I learnt:**
 - general learning outcomes per task: F1 and Reference and pipelining
 - Testing + debugging improvements - modular testing
 - new lines, bit width, consistency in naming, following signals along - checking on gtkwave, understanding which modules are involved and trigger signals
 - 
-**What I would've done differently: 
+**What I would've done differently:**
 
 Instead of delegating at the start, I believe it would have been more beneficial for the team to discuss and get a very clear understanding of how each module works collectively. Since the modules had interdependencies on each other, the lack of discussion made the debugging process harder since it was assumed that the inputs and outputs were all named/implemented in a standard format - again, setting a framework for this from the beginning would have been useful. Over the course of the project we became significantly better at communicating as a team, having regular Teams calls with the whole team to update each other on the progress, discuss errors and set internal deadlines. 
 
-**What I would've done with more time: 
+**What I would've done with more time:**
 
 If I had more time, I would have liked to spend it to explore stretch goal 2 to implement caching. 
 
-**Contributions: 
+**Contributions:**
 
 - Lab 4: Testbench and Top Level CPU module - although making the testbench was quite simple based on previous labs since I was testing the final program I spent a considerable amount of time debugging the errors from the individual modules; the vast majority of these were based on syntax errors and signals that were common across modules and some logic errors which enabled me to get a deep dive into the functionality and logic of every module. For the top level module I made a diagram understanding the inputs and outputs from every module that were going into another module to ensure I had covered all of the cases: 
 ![image](https://user-images.githubusercontent.com/107200668/208176121-a1457d27-4064-424a-9bcc-054ea2c65f1a.png)
