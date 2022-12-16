@@ -2,7 +2,7 @@
 
 ## Note for Examiners
 
-Instead of rtl files, we have uploaded our final code onto separate branches depending on the task - please note that the branches supporting reference code programs will also work for the F1 program; the reason for 4 different branches to separate the tasks is due to the differing Instruction Memory files and testbenches for F1 vs Reference. 
+Instead of rtl folders, we have uploaded our final code onto separate branches depending on the task - please note that the branches supporting reference code programs will also work for the F1 program; the reason for 4 different branches to separate the tasks is due to the differing Instruction Memory files and testbenches for F1 vs Reference. 
 
 The branches to look at are as follows:
 
@@ -67,9 +67,9 @@ https://drive.google.com/drive/folders/1RkyJlid2Hxn82E2YL0H5fLzyGT9P4sm4?usp=sha
 
 - We began the project by **planning the tasks**, this included understanding the objectives of the task as a team as well as creating and delegating tasks. 
 - Once the tasks had been delegated, **machine code** which would implement the f1 light switch was created and checked by other member of the team.
-- After the machine code was created we delegated the tasks of **implementing the machine code**, adding new architecture which is needed for the machine code, based on the pre-built blocks in Lab 4. This included planning the additions to the cpu, implementing the changes and then begugging any issues.
+- After the machine code was created we delegated the tasks of **implementing the machine code**, adding new architecture which is needed for the machine code, based on the pre-built blocks in Lab 4. This included planning the additions to the cpu, implementing the changes and then debugging any issues.
 - Next, we **implemented the reference code**, this involed adding a load byte and store byte instruction and testing the reference code against our cpu.
-- Finally, we piplined the RISC-V cpu and tested our final design. 
+- Finally, we pipelined the RISC-V cpu and tested our final design. 
 
 
 ## Planning
@@ -187,7 +187,7 @@ Final Machine Code:
 ## Implementation
 
 ### Data Memory - Riya
-As we had not created a Data Memory as an extention in Lab 4, it was added as a task for the coursework. When trying to implement it the I began by looking at the RISC-V diagram given in lectures to see the input and output signals driving the Data Memory Module:
+As we had not created a Data Memory as an extension in Lab 4, it was added as a task for the coursework. When trying to implement it I began by looking at the RISC-V diagram given in lectures to see the input and output signals driving the Data Memory Module:
 
 <img width="702" alt="Screenshot 2022-12-10 at 11 41 44" src="https://user-images.githubusercontent.com/115703122/206853241-c259f26b-9809-438e-953f-8243c735c360.png">
 
@@ -306,7 +306,7 @@ Since the load byte was specified to be unsigned, this meant that it would need 
 
 ![image](https://user-images.githubusercontent.com/107200668/207979090-312dd46f-18cc-422f-98a1-9d29ee4881fa.png)
 
-The explanation regarding design choices on selecting a specific byte from the instruction format and selecting bytes to form a word are outlined in the self-reflection account below. 
+The explanation regarding design choices on selecting a specific byte from the instruction format and selecting bytes to form a word are outlined in  the individual (Bhavya) self-reflection account. 
 
 Implementing Add instruction:
 
@@ -333,7 +333,8 @@ The main design choices came into play for selecting a word either to be loaded 
 Therefore to select a word, 2 possible design choices were considered: 
 1.	Start at the byte specified and offset from there 1,2 and 3 to concatenate consecutive bytes to form a word, i.e. if Imm + Rs1 = 5: 
 Corresponding Word: Bytes {5,6,7,8}
-2.	Regardless of which byte was selected, the word selected should correspond to the word indicated in the table above; since this matched the previous word addressing format this option was selected. 
+2.	Regardless of which byte was selected, the word selected should correspond to the word indicated in the table above; since this matched the previous word addressing format this option was selected.
+If Imm + Rs1 = 5:  
 Corresponding Word: Bytes {4,5,6,7}
 In order to implement Option 2, an algorithm/formula was needed to always start from byte 0,4,8,12 etc. to concatenate the correct bytes to form a word. 
 
