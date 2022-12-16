@@ -43,6 +43,8 @@ Illustrated through outputs on gtkwave:
 ## 3. Pipelining F1 Program (Jump Logic Changes)
 Other general stuff for final conclusion: 
 - Hardwired x0 register
+- ![image](https://user-images.githubusercontent.com/107200668/208074780-41c5ba6d-0db8-4af1-a18b-9c52c6f91f49.png)
+
 - make file reference gave code opposite way round
 - Control unit and sign extend fixing
 - Creating top level unit in Lab4 - diagram
