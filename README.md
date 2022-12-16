@@ -76,6 +76,12 @@ https://drive.google.com/drive/folders/1RkyJlid2Hxn82E2YL0H5fLzyGT9P4sm4?usp=sha
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+## Table of Contribution:
+
+<img width="701" alt="Screenshot 2022-12-16 at 12 02 20" src="https://user-images.githubusercontent.com/115703122/208094041-68b5caff-9f62-4a07-89de-ec1121f625ec.png">
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Initial Approach
 
 - We began the project by **planning the tasks**, this included understanding the objectives of the task as a team as well as creating and delegating tasks. 
