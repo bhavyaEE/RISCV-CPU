@@ -82,7 +82,7 @@ https://drive.google.com/drive/folders/1RkyJlid2Hxn82E2YL0H5fLzyGT9P4sm4?usp=sha
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-##Final Team Achievement: Pipelined CPU which can successfully run the F1 and Reference programs. 
+## Final Team Achievement: Pipelined CPU which can successfully run the F1 and Reference programs. 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
