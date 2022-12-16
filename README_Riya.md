@@ -189,6 +189,5 @@ There were two main issues when trying to debug:
 
 ## Conclusion
 
+Through the course of the project I learnt how to implement architecture for a cpu, debugging techniques and how to plan and work with a team to produce a working CPU. In particular, I learnt how to use the issues caused in debugging (after analysing the waveforms) to improve my designs and to create designs that were clear and simple. For example, when implementing shift I changed my design to utilise the free bits in ALUctrl to implement shift in the ALU. At the beginning I made simple syntax and common errors (like forgetting an additional line when writing in machine code). Towards the end of the project, my mistakes between more design based and meant I had to do serveral tests and look at waveforms to see where inputs and outputs were wrong and how I could fix the issue. If I had more time I would have liked to try and implement cache, as well as neaten the flipflop that pipelines in the pipeline_decode module.
 
-
-reflection about what you have learned in this project, mistakes you made, special design decisons, and what you might do differently if you were to do it again or have more time
