@@ -61,7 +61,7 @@ In the next commit: "added correct offset and extra signals" I understood the co
 
 ![image](https://user-images.githubusercontent.com/107200668/208202828-e9f773d7-757d-4ff3-bcca-b708038205e1.png)
 
-4. The final addition made was to write the correct value to the register in a JAL to store the address of the next instruction; this required changing the input to WD3 input in Regfile in top level ALU module to equal 'PC + 4' or ALUOut (additional jal enable signal added to serve as select line in this mux). 
+4. The final addition made was to write the correct value to the register in a JAL to store the address of the next instruction; this required changing the WD3 input to Writedata in the Regfile in top level ALU module to equal 'PC + 4' or ALUOut (additional jal enable signal added to serve as select line in this mux). 
 
 ![image](https://user-images.githubusercontent.com/107200668/208129726-c685facf-17c4-4877-9693-0d425db5867e.png)
 
