@@ -2,9 +2,15 @@
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Personal Reflection: 
 **What I learnt:**
-- general learning outcomes per task: F1 and Reference and pipelining
-- Testing + debugging improvements - modular testing
-- new lines, bit width, consistency in naming, following signals along - checking on gtkwave, understanding which modules are involved and trigger signals
+
+Through this coursework, I thoroughly understood the structure and design to implement a RISC-V instruction set architecture and was able to apply the knowledge from the lectures in practice for the design. The key learning points for me were efficiently collaborating to achieve the deliverables and developing better debugging skills: 
+
+-	initially the errors were largely to do with combinational loop errors/syntax/bit-width/consistency in naming across all modules but as the design became more complex with more interdependencies of signals per instruction it became more important to use gtkwave to see what was happening in each module and follow the signals along. 
+
+-	Testing each change/instruction in a modular format by creating a dummy set of instructions then expanding to a larger test case and testing with the final machine code. 
+
+-	My approach and mindset towards solving a problem was also enhanced by continuing to probe deeper whilst debugging, looking at every signal, going back and understanding what each value should be vs what it actually is and then digging deeper again to figure out why that is happening to reach the solution. 
+
 - 
 **What I would've done differently:**
 
@@ -102,6 +108,19 @@ The final input regarding concatenation lies in load word; it begins from the of
 ![image](https://user-images.githubusercontent.com/107200668/207979469-b00fde20-1a0d-4ed4-b4dc-08f12ce2dd11.png)
 
 Illustrated through outputs on gtkwave: 
+![image](https://user-images.githubusercontent.com/107200668/208199609-0209ef12-737f-4c5f-9146-b75e20492e97.png)
+![image](https://user-images.githubusercontent.com/107200668/208199619-8b982243-6206-474d-8861-81707ed0db37.png)
+
+
+I also realised that due to the reset while i<3 condition in the testbench, I needed a NOP before an addi instruction otherwise, it would keep repeating thrice as PC would not increment. 
+![image](https://user-images.githubusercontent.com/107200668/208199010-66317afa-4367-491f-a705-e84a139b1fa5.png)
+![image](https://user-images.githubusercontent.com/107200668/208199337-407ccb03-6625-4658-9830-34a1ec9611a6.png)
+Correct output after NOP: 
+![image](https://user-images.githubusercontent.com/107200668/208199371-2f647ef3-e2a0-4da9-9de3-689e52047641.png)
+
+Loading out a word instead of bytes (should be sign extended rather than zero extended)
+![image](https://user-images.githubusercontent.com/107200668/208200221-a2b34b9a-6152-4480-8581-e0122ed72a12.png)
+![image](https://user-images.githubusercontent.com/107200668/208200239-2104e15f-ff6f-463e-a3f3-e4504b85473d.png)
 
 **ADD Instruction** 
 As outlined in the main, we realised during Reference Program testing that we had only implemented an ADDI instruction and not an ADD. 
@@ -113,5 +132,16 @@ Initially an assign statement was used to set reg_array[0] = 0; however, I remem
 
 ## 3. Pipelining F1 + Reference Program - Debugging Process
 
-- make file reference gave code opposite way round
-Jump logic changes to the execute stage 
+Key changes: 
+
+1. When using the make file reference command to generate the pdf.hex file, the instructions had to be read in the opposite order to how we were reading them earlier versions where the Instruction file was generated from the assembler (same concept as how programmer views/how computer reads). 
+2. Jump logic changes: the jump logic was amended to match the diagram on the MAIN README (from Lecture slides on Pipelining) by moving all the relevant multiplexers to the to the execute stage/modules to feed into PCTargetE which was going directly into the PC module
+![image](https://user-images.githubusercontent.com/107200668/208191516-ab497ece-12b7-4198-aafa-28ab89f7dd3e.png)
+![image](https://user-images.githubusercontent.com/107200668/208193443-18f6ed7e-e072-468f-9925-7ff01eb8163f.png)
+
+Again to match the pipelined diagram, the AND/OR logic to feed into PCSrcE was added along with BranchSel and JumpSel signals. 
+ 
+![image](https://user-images.githubusercontent.com/107200668/208192009-2afd334d-5ca5-4099-9779-1aeaf3ffefcc.png)
+![image](https://user-images.githubusercontent.com/107200668/208193466-b5e27d97-6a81-436b-925e-f45822d795a4.png)
+
+The rest of the debugging was mostly ensuring all relevant trigger signals were carried across to all stages, and ensuring consistency in the module hierarchies of inputs/outputs. 
