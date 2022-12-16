@@ -104,16 +104,20 @@ The final input regarding concatenation lies in load word; it begins from the of
 ![image](https://user-images.githubusercontent.com/107200668/207979469-b00fde20-1a0d-4ed4-b4dc-08f12ce2dd11.png)
 
 Illustrated through outputs on gtkwave: 
+
 ![image](https://user-images.githubusercontent.com/107200668/208199609-0209ef12-737f-4c5f-9146-b75e20492e97.png)
+
 ![image](https://user-images.githubusercontent.com/107200668/208199619-8b982243-6206-474d-8861-81707ed0db37.png)
 
 
 I also realised that due to the reset while i<3 condition in the testbench, I needed a NOP before an addi instruction otherwise, it would keep repeating thrice as PC would not increment. 
 
 ![image](https://user-images.githubusercontent.com/107200668/208199010-66317afa-4367-491f-a705-e84a139b1fa5.png)
+
 ![image](https://user-images.githubusercontent.com/107200668/208202452-a7be20d7-1709-458a-a2b1-22205f2c7c01.png)
 
 Correct output after NOP: 
+
 ![image](https://user-images.githubusercontent.com/107200668/208202424-543e1f4f-ae37-4382-8466-a76a6d009f97.png)
 
 
@@ -133,6 +137,7 @@ Key changes:
 
 1. When using the make file reference command to generate the pdf.hex file, the instructions had to be read in the opposite order to how we were reading them earlier versions where the Instruction file was generated from the assembler (same concept as how programmer views/how computer reads). 
 2. Jump logic changes: the jump logic was amended to match the diagram on the MAIN README (from Lecture slides on Pipelining) by moving all the relevant multiplexers to the to the execute stage/modules to feed into PCTargetE which was going directly into the PC module
+
 ![image](https://user-images.githubusercontent.com/107200668/208191516-ab497ece-12b7-4198-aafa-28ab89f7dd3e.png)
 ![image](https://user-images.githubusercontent.com/107200668/208193443-18f6ed7e-e072-468f-9925-7ff01eb8163f.png)
 
