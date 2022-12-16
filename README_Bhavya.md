@@ -1,7 +1,39 @@
 ## Individual account + reflections - Bhavya Sharma
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Personal Reflection: 
+
+**What I learnt: 
+- general learning outcomes per task: F1 and Reference and pipelining
+- Testing + debugging improvements - modular testing
+- new lines, bit width, consistency in naming, following signals along - checking on gtkwave, understanding which modules are involved and trigger signals
+- 
+**What I would've done differently: 
+
+Instead of delegating at the start, I believe it would have been more beneficial for the team to discuss and get a very clear understanding of how each module works collectively. Since the modules had interdependencies on each other, the lack of discussion made the debugging process harder since it was assumed that the inputs and outputs were all named/implemented in a standard format - again, setting a framework for this from the beginning would have been useful. Over the course of the project we became significantly better at communicating as a team, having regular Teams calls with the whole team to update each other on the progress, discuss errors and set internal deadlines. 
+
+**What I would've done with more time: 
+
+If I had more time, I would have liked to spend it to explore stretch goal 2 to implement caching. 
+
+**Contributions: 
+
+- Lab 4: Testbench and Top Level CPU module - although making the testbench was quite simple based on previous labs since I was testing the final program I spent a considerable amount of time debugging the errors from the individual modules; the vast majority of these were based on syntax errors and signals that were common across modules and some logic errors which enabled me to get a deep dive into the functionality and logic of every module. For the top level module I made a diagram understanding the inputs and outputs from every module that were going into another module to ensure I had covered all of the cases: 
+![image](https://user-images.githubusercontent.com/107200668/208176121-a1457d27-4064-424a-9bcc-054ea2c65f1a.png)
+
+
+- Testbenches for Coursework: continuining the thread from Lab 4, I made the necessary adjustments to the basic testbench for the F1 and Pipelined PDF cases. In the latter case it was simply increasing number of cycles and only plotting when there was value in a0 rather than plotting every cycle to reduce compiling time. 
+
+- Implementing Machine Code for F1 Light sequence with additional instructions not covered in Lab 4
+ 
+- Implementing additional changes for Reference code: LUI, LBU, SB instructions (and LW + SW) 
+
+- Testing + Debugging for the above tasks and for the pipelined CPU
+ 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Design Choices:
+
 
 ## 1. F1 Program Instructions (Jump)
 
@@ -72,21 +104,15 @@ The final input regarding concatenation lies in load word; it begins from the of
 
 Illustrated through outputs on gtkwave: 
 
+**ADD Instruction** 
+As outlined in the main, we realised during Reference Program testing that we had only implemented an ADDI instruction and not an ADD. 
+A key observation I made during this implementation was that: the zero register was actually being written to in a jalr instruction and when I used the zero register to test the ADD instruction for the Reference Program, the outputs were incorrect. 
 
-## 3. Pipelining F1 Program 
-
-When testing and debugging a key observation I made was that the zero register was actually being written to in a jalr instruction and when I used the zero register to test the ADD instruction for the Reference Program the outputs were incorrect. 
 Initially an assign statement was used to set reg_array[0] = 0; however, I remembered from work in the previous labs that the 'assign' would not mean that the zero register doesn't get overwritten so I changed the condition for writing to a register from only dependent on WE HIGH to WE HIGH & AD3 !=0 meaning if the register to be written to was ever x0 then a write operation would NOT take place. 
 
-Other general stuff for final conclusion: 
-- Hardwired x0 register
 - ![image](https://user-images.githubusercontent.com/107200668/208074780-41c5ba6d-0db8-4af1-a18b-9c52c6f91f49.png)
 
+## 3. Pipelining F1 + Reference Program - Debugging Process
+
 - make file reference gave code opposite way round
-- Control unit and sign extend fixing
-- Creating top level unit in Lab4 - diagram
-- Testbench requirements changing per task 
-- general learning outcomes per task: F1 and Reference and pipelining
-- Testing + debugging improvements - modular testing
-- new lines, bit width, consistency in naming, following signals along - checking on gtkwave, understanding which modules are involved and trigger signals
-- what would be done differently/more time + git commits reference
+Jump logic changes to the execute stage 
