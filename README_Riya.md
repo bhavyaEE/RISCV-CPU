@@ -20,7 +20,7 @@ Changes made:
 
 - When completing the coursework I made the decision to move the mux from a separate module into the top level pc module, as if was more clear and having a module for only a mux was unnecessary. 
 - Additionally, when adding jump logic it was required to change the mux from choosing branch pc if PCSrc was high and would instead choose PCTarget for Jump and Branch instructions.
-- Finally, in order to pipeline the PC, the PC was moved into a fetch module where it could connect to the instruction module. Inisde the Pipelinefetch module was the PCIncr or PCTarget mux and a flip flop to change PCF to PCD. 
+- Finally, in order to pipeline the PC, the PC was moved into a fetch module where it could connect to the instruction module. Inside the Pipelinefetch module was the PCIncr or PCTarget mux and a flip flop to change PCF to PCD. 
 
 Below is the final design used for the toppc.sv module:
 
@@ -65,7 +65,7 @@ Once, I had done initial planning. In order to implement load and store word ins
 
 <img width="829" alt="Screenshot 2022-12-12 at 16 36 22" src="https://user-images.githubusercontent.com/115703122/207101510-95409f50-b201-404f-8d7c-8752aa1a0576.png">
 
-The biggest issue with debugging was a combinational loop occuring in the control unit, because EQ depended on additional signals such as ALUsrc or Immsrc but this sigals also depended on EQ. Our first attempt to resolve this was to put EQ in a separate case statement however this meant that the default values set to zero would conflict with the signals in the second case block. In the end I resolved the warning by creating a separate combinational block for EQ which only depended on PCsrc. I also encountered other simple errors, such as syntax and not leaving a line after endmodule and the machine code. Most errors were debugged by reviewing the signals in GTKwave and establishing which outputs were incorrect and then reviewing the code to see why that occured and how to correct it. Additionally, I had machine code errors not realising the right format for a load store instruction which was fixed by reviewing the instructions and understanding how they were written below:
+The biggest issue with debugging was a combinational loop occuring in the control unit, because EQ depended on additional signals such as ALUsrc or Immsrc but this signals also depended on EQ. Our first attempt to resolve this was to put EQ in a separate case statement, however this meant that the default values set to zero would conflict with the signals in the second case block. In the end I resolved the warning by creating a separate combinational block for EQ which only depended on PCsrc. I also encountered other simple errors, such as syntax and not leaving a line after endmodule and the machine code. Most errors were debugged by reviewing the signals in GTKwave and establishing which outputs were incorrect and then reviewing the code to see why that occured and how to correct it. Additionally, I had machine code errors not realising the right format for a load store instruction which was fixed by reviewing the instructions and understanding how they were written below:
 
 <img width="778" alt="Screenshot 2022-12-11 at 12 33 46" src="https://user-images.githubusercontent.com/115703122/206903806-44b003a9-796e-47ed-85c2-a78859dd1e46.png">
 
@@ -73,13 +73,6 @@ The biggest issue with debugging was a combinational loop occuring in the contro
 
 Another big change to the data memory architecture was changing ResultSrc from 1 bit to 2 bits. This was changed after trying to implement jump. Orginally, the way I hoped to implement it was by having to multiplexers so that the value going into WD3 in the reg file could be determined by whether ResultSrc was high or if a trigger signal Jal_sel was high (this went high if a jal instruction was present). Bhavya and I decided to change this as ResultSrc could be used to idenify both jumps and load instructions by extending it to 2 bits and setting the values in the control unit. This method made it easier to pipeline and made the code cleaner, without requiring an extra jal_sel in the writeback section. 
 
-
-
-Testing:
-
-In order to test the load and store word instructions, I first had to understand the instruction format. As load and store are register addressed I had to load values into a register using an addi instruction. Then I stored that value into a data memory location, sw t1 0(t2). This stored the value with register t1 (0x001 from previous addi instruction) into the data memory address 0(t2), this means the value in register t2+0 offset so that would store in data memory location 0x1000 from previous addi instruction. In was important that i only accessed memory from the allowed range of data memory addresses from the project brief. 
-
-<img width="957" alt="Screenshot 2022-12-11 at 12 36 28" src="https://user-images.githubusercontent.com/115703122/206903936-efe057d0-ee8c-4eb2-89d9-1cedbbcad260.png">
 
 **Creating Test Machine Code**- 
 
@@ -93,11 +86,11 @@ The output was 0x001 into a0 which was as expected proving the lw and sw instruc
 
 What I'd do differently: 
 
-If I was to do this again, I would ensure the control unit was correct and robust instead of making short term fixes such as removing signals and making multiple if else statements, as the control unit was essential for later changes. Not ensuring the control unit was correct at the beginning resulted in much more time debugging.
+If I was to do this again, I would ensure the control unit was correct and robust instead of making short term fixes such as removing signals and making multiple if else statements, as the control unit was essential for later changes. Not ensuring the control unit was correct at the beginning resulting in much more time debugging.
 
 ### Shift Instruction
 
-In addition to implementing the data memory, I also implemented the changed needed for the slli instruction used within our machine code. I made an orirginal version, which consisted of adding an additional module which would take RD1 into a shift module, and if shift select was high then RD1 would be shifted to the left by one bit. The diagram and implementation of the first version of shift is shown below:
+In addition to implementing the data memory, I also implemented the changed needed for the slli. I made an original version, which consisted of adding an additional module which would take RD1 into a shift module, and if shift select was high then RD1 would be shifted to the left by one bit. The diagram and implementation of the first version of shift is shown below:
 
 <img width="531" alt="Screenshot 2022-12-14 at 11 36 42" src="https://user-images.githubusercontent.com/115703122/207585153-2d7e218a-1049-4e5e-987d-cef1c89cb810.png">
 
@@ -116,7 +109,7 @@ In order to implement a shift, I added to things to the CPU:
 <img width="710" alt="Screenshot 2022-12-14 at 13 25 22" src="https://user-images.githubusercontent.com/115703122/207607143-8e7fa74f-7c37-4c1e-a3b4-112494272a73.png">
 
 **Issues with this version:**
-- Using a shift module meant that the were additions to the architecture such as mux's and a shift module which are unnessary and overly compilicated.
+- Using a shift module meant that the were additions to the architecture such as mux's and a shift module which are unnecessary and overly compilicated.
 - The architecture could only implement a shift by 1 bit and did not fufil the requirements of the instruction to shift by ImmOp.
 - Using a concantination to shift was inefficient and its better to use the inbuilt shift operator.
 - It was difficult to combine this shift implementation with the jump additions.
@@ -135,6 +128,7 @@ ALU module:
 
 <img width="322" alt="Screenshot 2022-12-14 at 13 26 40" src="https://user-images.githubusercontent.com/115703122/207607411-6416d5a6-537a-430e-8a3a-38ffc78ad610.png">
 
+Benifts of new design:
 - Ultilizes the fact that there are free bits in ALUctrl to implement a shift instruction inside the ALU module.
 - No changes required to architecture as shift occurs in ALU.
 - As we use the shift operator we can shift by different amounts using Immop.
@@ -159,15 +153,15 @@ What I'd do differently:
 
 Bhavya and I were tasked with completing the additions needed to execute the reference programme. We started by implementing the LBU (load byte) and SB (store byte) instructions. The first stage of implementing the instruction was planning the changes needed:
 
-1) First I realised that data memory was byte addressed and not word address, this would require changing the design of the data memory module. This meant that if I implemented byte addressing store and load byte would be simple as I would take from addresses which byte was required. However, to still implement load word and store word, this would require concatinated 4 bytes (addresses) together to output a 32 bit value.
+1) First I realised that data memory was byte addressed and not word address, this would require changing the design of the data memory module. This meant that if I implemented byte addressing, store and load byte would be simple as I would take from addresses which byte was required. However, to still implement load word and store word, this would require concatinating 4 bytes (addresses) together to output a 32 bit value.
 
 <img width="629" alt="Screenshot 2022-12-15 at 16 38 48" src="https://user-images.githubusercontent.com/115703122/207917478-9d45770a-4d02-4ca3-9ffd-e227f2c136b4.png">
 
-2) Additionally, then we had to decide which values we would take for a store and load word. If we loaded in the address 0x0005 for a store word would we store bytes in addresses 0x0005, 0x0006,0x0007 and 0x0008 OR 0x0004,0x0005, 0x0006 and 0x0007. We believed this was in the mind of the programmer and decided that every load word shoudl always store or load from an address that was a mulitiple of 4. To do this we added the additional var inputs to set every address to the last muliple of 4, then concatinate.
+2) Additionally, then we had to decide which values we would take for a store and load word. If we loaded in the address 0x0005 for a store word would we store bytes in addresses 0x0005, 0x0006,0x0007 and 0x0008 OR 0x0004,0x0005, 0x0006 and 0x0007. We believed this was in the mind of the programmer and decided that every load word should always store or load from an address that was a mulitiple of 4. To do this we added the additional var inputs to set every address to the last muliple of 4, then concatinate.
 
 <img width="905" alt="Screenshot 2022-12-15 at 16 47 37" src="https://user-images.githubusercontent.com/115703122/207919274-d630d3cb-cec7-497e-8396-fbb6d5b7dfa4.png">
 
-3) As we needed different functions for store byte and store word and loads and stores, we have to feed funct3 into the data memory module. Funct3 would determine a byte or word instruction and Resultsrc would determine a load, while Memwrite determined a store.
+3) As we needed different functions for store byte and store word and loads and stores, we had to feed funct3 into the data memory module. Funct3 would determine a byte or word instruction and Resultsrc would determine a load, while Memwrite determined a store.
 
 <img width="1048" alt="Screenshot 2022-12-15 at 16 49 43" src="https://user-images.githubusercontent.com/115703122/207919761-ff6be36b-ec35-42f0-a1f4-c8619ab03710.png">
 
@@ -189,5 +183,5 @@ There were two main issues when trying to debug:
 
 ## Conclusion
 
-Through the course of the project I learnt how to implement architecture for a cpu, debugging techniques and how to plan and work with a team to produce a working CPU. In particular, I learnt how to use the issues caused in debugging (after analysing the waveforms) to improve my designs and to create designs that were clear and simple. For example, when implementing shift I changed my design to utilise the free bits in ALUctrl to implement shift in the ALU. At the beginning I made simple syntax and common errors (like forgetting an additional line when writing in machine code). Towards the end of the project, my mistakes between more design based and meant I had to do serveral tests and look at waveforms to see where inputs and outputs were wrong and how I could fix the issue. If I had more time I would have liked to try and implement cache, as well as neaten the flipflop that pipelines in the pipeline_decode module.
+Through the course of the project, I learnt how to implement architecture for a cpu, debugging techniques and how to plan and work with a team to produce a working CPU. In particular, I learnt how to use the issues caused in debugging (after analysing the waveforms) to improve my designs and to create designs that were clear and simple. For example, when implementing shift I changed my design to utilise the free bits in ALUctrl to implement shift in the ALU. At the beginning I made simple syntax and common errors (like forgetting an additional line when writing in machine code). Towards the end of the project, my mistake became more design based and meant I had to do serveral tests and look at waveforms to see where inputs and outputs were wrong and how I could fix the issue. If I had more time I would have liked to try and implement cache, as well as neaten the flipflop that pipelines LUI signals in the pipeline_decode module.
 
