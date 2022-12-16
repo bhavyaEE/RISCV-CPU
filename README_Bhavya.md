@@ -13,7 +13,7 @@ Through this coursework, I thoroughly understood the structure and design to imp
 
 **What I would've done differently:**
 
-Instead of delegating at the start, I believe it would have been more beneficial for the team to discuss and get a very clear understanding of how each module works collectively. Since the modules had interdependencies on each other, the lack of discussion made the debugging process harder since it was assumed that the inputs and outputs were all named/implemented in a standard format - again, setting a framework for this from the beginning would have been useful. Over the course of the project we became significantly better at communicating as a team, having regular Teams calls with the whole team to update each other on the progress, discuss errors and set internal deadlines. 
+Instead of delegating at the start, I believe it would have been more beneficial for the team to discuss and get a very clear understanding of how each module works collectively. Since the modules had interdependencies on each other, the lack of discussion made the debugging process harder since it was assumed that the inputs and outputs were all named/implemented in a standard format - again, setting a framework for this from the beginning would have been useful. Over the course of the project we became significantly better at communicating as a team, having regular Teams calls with the whole team to update each other on the progress, discuss errors and set internal deadlines. I would also add more commenting to my code - I started doing this a lot more with the latter half of my work than I did at the beginning as it would make it easier when going back over it to undertsand what was done and why. 
 
 **What I would've done with more time:**
 
