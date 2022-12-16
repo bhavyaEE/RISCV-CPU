@@ -45,7 +45,7 @@ This branch was used to debug the changes made in order to pipeline from the bra
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Additional Branches:
+Additional Branches - Description - Contributor:
 
 PipelineVersion1 - Pipelined version during debugging - done by Isabel and Ethan.
 
@@ -59,10 +59,12 @@ leftshift - Left shift for F1 - done by Riya.
 
 jump - Jump for F1 -  done by Bhavya.
 
-## USER INFO:
-**Student Name; CID; Imperial Email ID; GitHub usernames; GitHub email for each contributor:**
+## CONTRIBUTOR GITHUB USER INFO:
+**Student Name; CID; Imperial Email ID; GitHub usernames; GitHub email:**
 
 Bhavya Sharma; 02022359; bs921@ic.ac.uk; bhavyaEE (also committed with username root in some branches due to git config not setup in earlier stages); bs921@ic.ac.uk/107200668+bhavyaEE@users.noreply.github.com
+
+Riya Chard:
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
