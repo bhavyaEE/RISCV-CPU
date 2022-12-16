@@ -1,7 +1,6 @@
 ## Individual account + reflections - Bhavya Sharma
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Personal Reflection: 
-
 **What I learnt:**
 - general learning outcomes per task: F1 and Reference and pipelining
 - Testing + debugging improvements - modular testing
