@@ -1,4 +1,31 @@
 # iac-riscv-cw-11
+
+## Note for Examinars
+
+Instead of rtl files, we have uploaded our final code onto separate branches depending on the task. The branches to look at are as follows:
+
+**Working-Pipeline-with-Reference-Code** - This is our final working cpu for a working pipelined cpu that implements the reference code. The pipelining was done by Isabel and Ethan. The implementation of additional instructions for reference code was done by Bhavya and Riya.
+
+**Working-pipelined-F1** - This is our working cpu for pipelined F1 light sequence. The machine code was created by Isabel and Ethan and the implementation was done by Riya and Bhavya. 
+
+**WorkingF1** - Working F1 light sequence machine code and cpu implemented. Worked on by Bhavya and Riya.
+
+**NonPipelinedReferenceCode** - Working reference programme cpu. Worked on by Bhavya and Riya.
+
+Additional Branches:
+
+PipelineVersion1 - Pipelined version during debugging - done by Isabel and Ethan.
+
+PipelineVersion2 - Pipelined version during debugging - done by Isabel and Ethan.
+
+DataMemoryVersion1 - Data Memory implemented during debugging - done by Riya.
+
+DataMemoryVersion1 - Data memory for F1 - done by Riya.
+
+leftshift - Left shift for F1 - done by Bhavya.
+
+jump
+
 ## Initial Approach
 
 - We began the project by **planning the tasks**, this included understanding the objectives of the task as a team as well as creating and delegating tasks. 
