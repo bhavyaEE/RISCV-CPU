@@ -384,6 +384,12 @@ To avoid pipelining hazard, instead of adding hazard unit, we chose to add NOP i
 
 During debugging we noticed whilst analysing gtkwave that further NOPs would be required; thus we made a slight change to the machine code outlined at the start to have 5 NOPs between every instruction rather than 2 shown below. 
 
+Summary of changes made during debugging: 
+- Moving jump logic and multiplexers to execute stage
+- Separating branch and jump enable signals to match diagram from lecture slides (2nd diagram below).
+- LUI_EN signals needed to be delayed appropriately using flip flops which were added in, to align with register values changing in specific cycles and avoid hazards.
+- For reference program only: break statement to stop plotting after a certain range (to speed up compiling) from single cycle testbench was removed since pipelining needs more cycles we did not want to stop plotting after the certain value was reached; it was better to remove the statement so the waveform could be plotted entirely.    
+
 Final Cpu Diagram:
 
 <img width="615" alt="Screenshot 2022-12-14 at 13 35 47" src="https://user-images.githubusercontent.com/115703122/207609285-6f8e4b49-bb37-4e66-ad20-fb92056c159e.png">
