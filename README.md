@@ -64,7 +64,7 @@ jump - Jump for F1 -  done by Bhavya.
 
 Bhavya Sharma; 02022359; bs921@ic.ac.uk; bhavyaEE (also committed with username root in some branches due to git config not setup in earlier stages); bs921@ic.ac.uk/107200668+bhavyaEE@users.noreply.github.com
 
-Riya Chard:
+Riya Chard: 01855457; rc920@ic.ac.uk; Riya050302; 115703122+Riya050302@users.noreply.github.com 
 
 Zhouxin(Isabel) Zheng; 02027930; zz3521@ic.ac.uk; zzx04
 
