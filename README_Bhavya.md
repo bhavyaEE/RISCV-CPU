@@ -61,9 +61,7 @@ In the next commit: "added correct offset and extra signals" I understood the co
 ![image](https://user-images.githubusercontent.com/107200668/208126775-be3312e4-1ce1-4247-9cb2-c703f46eaf1e.png)
 
 2. The value from the jalr offset was outputted through ALUOut since it is Imm + RS1 and needed to be fed into PC so I added a 'sum' wire to link the two modules in the top level. For the purposes of RET this may not have been required since the offset is usually zero, but in order to follow the function of a JALR I took the output from the ALU. 
-3. In order to set the value of PC equal to the addresses from the jal/jalr/bne instructions I added the following logic in the top level PC module (jalrsel signal was also added to Control Unit and connected through to relevant modules in the 'added correct offset, extra signals' commit. 
-
-The previous branch_PC multiplexer was changed such that branch_PC would equal 'sum' in the case of a JALR instruction, else branch_PC = 'PC + Imm' [jump_PC]  if it was a jump or branch. This then fed into the next_PC multiplexer as normal so choose between incrementing or jumping/branching. 
+3. In order to set the value of PC equal to the addresses from the jal/jalr/bne instructions I added the following logic in the top level PC module:
 
 ![image](https://user-images.githubusercontent.com/107200668/208128800-abd706b8-0c9f-4fad-ae0b-6b426ba45618.png)
 
