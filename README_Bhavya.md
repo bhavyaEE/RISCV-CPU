@@ -7,7 +7,7 @@
 
 The basic JAL implementation is outlined in the main README of adding signals to control unit. 
 In this section, I will describe the issues/ideas considered during implementation. 
-**Each stage was realised through creating small machine code instructions to check if jumps were happening and viewing on gtk wave to see which signals were going high/low compared to what should happen to understand what further changes were required. **
+**Each stage was realised through creating small machine code instructions to check if jumps were happening and viewing on gtk wave to see which signals were going high/low compared to what should happen to understand what further changes were required.
 
 1. I started off by looking at the ISA to understand how the bits were split in the instruction:
 ![image](https://user-images.githubusercontent.com/107200668/208124106-0283f30e-d1f9-4f10-a43d-9f772161a078.png)
