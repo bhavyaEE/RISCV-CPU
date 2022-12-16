@@ -6,13 +6,13 @@ Instead of rtl files, we have uploaded our final code onto separate branches dep
 
 The branches to look at are as follows:
 
-**Single Cycle CPU for F1: **
+**Single Cycle CPU for F1:**
 
-**Branch: Main **
+**Branch: Main**
 
 Folder: test
 
-**Single Cycle CPU for Reference Code: **
+**Single Cycle CPU for Reference Code:**
 
 **Branch: Working-Pipeline-with-Reference-Code**
 
@@ -20,7 +20,7 @@ Description and Contributors:
 
 This is our final working cpu for a working pipelined cpu that implements the reference code. The pipelining was done by Isabel and Ethan. The implementation of additional instructions for reference code was done by Bhavya and Riya.
 
-**Pipelined CPU for F1 Program: **
+**Pipelined CPU for F1 Program:**
 
 **Branch: WorkingF1**
 
@@ -28,7 +28,7 @@ Description and Contributors:
 
 Working F1 light sequence machine code and CPU implemented. Worked on by Bhavya and Riya.
 
-**Pipelined CPU for Reference Code: **
+**Pipelined CPU for Reference Code:**
 
 **Branch:NonPipelinedReferenceCode** 
 
