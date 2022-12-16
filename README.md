@@ -22,7 +22,7 @@ Folder: test
 
 Description and Contributors: 
 
-Single cycle CPU with additional instructions to support the implementation of the reference code. The basic structure was largely taken from Lab4 work with additional instructions of Jump and Shift done by Bhavya and Riya. The 
+Single cycle CPU with additional instructions to support the implementation of the reference code. The basic structure was largely taken from Lab4 work with additional instructions of Jump and Shift done by Bhavya and Riya. 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
