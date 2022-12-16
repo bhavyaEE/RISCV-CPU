@@ -68,6 +68,8 @@ Riya Chard: 01855457; rc920@ic.ac.uk; Riya050302; 115703122+Riya050302@users.nor
 
 Zhouxin(Isabel) Zheng; 02027930; zz3521@ic.ac.uk; zzx04; 106155056+zzx04@users.noreply.github.com
 
+Yuxuan(Ethan) Chen; 02031134; yc3521@ic.ac.uk; yuxuan-chen-6; 69693952+yuxuan-chen-6@users.noreply.github.com
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Evidence for Test Results (Videos and vcd files) can be accessed here: 
