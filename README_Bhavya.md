@@ -58,6 +58,7 @@ In the next commit: "added correct offset and extra signals" I understood the co
 
 2. The value from the jalr offset was outputted through ALUOut since it is Imm + RS1 and needed to be fed into PC so I added a 'sum' wire to link the two modules in the top level. For the purposes of RET this may not have been required since the offset is usually zero, but in order to follow the function of a JALR I took the output from the ALU. 
 3. In order to set the value of PC equal to the addresses from the jal/jalr/bne instructions I added the following logic in the top level PC module:
+4. 
 ![image](https://user-images.githubusercontent.com/107200668/208202828-e9f773d7-757d-4ff3-bcca-b708038205e1.png)
 
 4. The final addition made was to write the correct value to the register in a JAL to store the address of the next instruction; this required changing the input to WD3 input in Regfile in top level ALU module to equal 'PC + 4' or ALUOut (additional jal enable signal added to serve as select line in this mux). 
@@ -103,21 +104,17 @@ Illustrated through outputs on gtkwave:
 
 ![image](https://user-images.githubusercontent.com/107200668/208199609-0209ef12-737f-4c5f-9146-b75e20492e97.png)
 
-![image](https://user-images.githubusercontent.com/107200668/208199619-8b982243-6206-474d-8861-81707ed0db37.png)
-
-**Load Byte Unsigned: **
+**Load Byte Unsigned:**
 
 ![image](https://user-images.githubusercontent.com/107200668/208199010-66317afa-4367-491f-a705-e84a139b1fa5.png)
 
 I also realised that due to the reset while i<3 condition in the testbench, I needed a NOP before an addi instruction otherwise, it would keep repeating thrice as PC would not increment. 
 
-![image](https://user-images.githubusercontent.com/107200668/208199010-66317afa-4367-491f-a705-e84a139b1fa5.png)
-
-![image](https://user-images.githubusercontent.com/107200668/208202452-a7be20d7-1709-458a-a2b1-22205f2c7c01.png)
+![image](https://user-images.githubusercontent.com/107200668/208203476-0f0b5e26-8e9a-43d9-9766-8e848c1fd4b8.png)
 
 Correct output after NOP: 
 
-![image](https://user-images.githubusercontent.com/107200668/208202424-543e1f4f-ae37-4382-8466-a76a6d009f97.png)
+![image](https://user-images.githubusercontent.com/107200668/208203507-2fc928d9-ebc7-4d0d-9ed9-0b0afb56cddb.png)
 
 
 **ADD Instruction** 
