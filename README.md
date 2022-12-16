@@ -16,27 +16,27 @@ Folder: test
 
 **Single Cycle CPU for Reference Code:**
 
-**Branch: Working-Pipeline-with-Reference-Code**
+**Branch: NonPipelinedReferenceCode**
 
 Description and Contributors: 
 
-This is our final working cpu for a working pipelined cpu that implements the reference code. The pipelining was done by Isabel and Ethan. The implementation of additional instructions for reference code was done by Bhavya and Riya.
+Single cycle CPU with additional instructions to support the implementation of the reference code. The basic structure was largely taken from Lab4 work with additional instructions of Jump and Shift done by Bhavya and Riya.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Pipelined CPU for F1 Program:**
 
-**Branch: WorkingF1**
+**Branch: Working-pipelined-F1**
 
 Description and Contributors: 
 
-Working F1 light sequence machine code and CPU implemented. Worked on by Bhavya and Riya.
+Working F1 light sequence machine code on a Pipelined CPU; pipelining structure worked on by Ethan and Isable, debugging and resulting changes made by Bhavya and Riya.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Pipelined CPU for Reference Code:**
 
-**Branch:NonPipelinedReferenceCode** 
+**Branch:Working-Pipeline-with-Reference-Code** 
 
 Description and Contributors: 
 
@@ -323,8 +323,6 @@ Implementing LUI instruction:
 2) LUI_EN was fed into the RegFile.sv module, and used to either feed through ImmOP from the sign extend into a register or if theres no LUI instruction then feed through write data:
 
 <img width="605" alt="Screenshot 2022-12-15 at 16 55 35" src="https://user-images.githubusercontent.com/115703122/207920982-6fe32901-d5bb-440a-a1eb-898eebdbc6ab.png">
-
-The explanation regarding design choices on selecting a specific byte from the instruction format and selecting bytes to form a word are outlined in the self-reflection account below. 
 
 ## Self-reflection on Reference Program Instructions (LBU + SB) design choices (Bhavya): 
 The diagram below outlines how I visualised the memory to be split up into bytes from a word. Once we realised that the only way to implement these instructions was to make the data memory byte addressed, it was quite clear that the specific byte to be addressed would simply be the value of the Immediate + RS1 in the case of an LBU. 
