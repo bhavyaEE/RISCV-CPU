@@ -8,9 +8,11 @@ The diagram below outlines how I visualised the memory to be split up into bytes
 
 The main design choices came into play for selecting a word either to be loaded into a register or a word to be stored into memory since the instruction: Imm + RS1 would still give a number which corresponds to a byte. 
 Therefore to select a word, 2 possible design choices were considered: 
-1.	Start at the byte specified and offset from there 1,2 and 3 to concatenate consecutive bytes to form a word, i.e. if Imm + Rs1 = 5: 
+
+1.	Start at the byte specified and offset from there by 1,2 and 3 to concatenate consecutive bytes to form a word, i.e. if Imm + Rs1 = 5: 
 Corresponding Word: Bytes {5,6,7,8}
 2.	Regardless of which byte was selected, the word selected should correspond to the word indicated in the table above; since this matched the previous word addressing format this option was selected.
+
 If Imm + Rs1 = 5:  
 Corresponding Word: Bytes {4,5,6,7}
 In order to implement Option 2, an algorithm/formula was needed to always start from byte 0,4,8,12 etc. to concatenate the correct bytes to form a word. 
