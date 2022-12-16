@@ -66,6 +66,8 @@ Bhavya Sharma; 02022359; bs921@ic.ac.uk; bhavyaEE (also committed with username 
 
 Riya Chard:
 
+Zhouxin(Isabel) Zheng; 02027930; zz3521@ic.ac.uk; zzx04
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Evidence for Test Results (Videos and vcd files) can be accessed here: 
@@ -102,7 +104,7 @@ When splitting the tasks we decided to work in pairs for machine code and implem
 - Reference Code implementation - Riya and Bhavya 
 - Pipelining - Isabel and Ethan
 
-## Machine Code 
+## Machine Code - Isbael and Ethan
 
 Instructions:
 
