@@ -82,6 +82,10 @@ https://drive.google.com/drive/folders/1RkyJlid2Hxn82E2YL0H5fLzyGT9P4sm4?usp=sha
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+##Final Team Achievement: Pipelined CPU which can successfully run the F1 and Reference programs. 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Initial Approach
 
 - We began the project by **planning the tasks**, this included understanding the objectives of the task as a team as well as creating and delegating tasks. 
@@ -205,6 +209,8 @@ Final Machine Code:
     000083e7
 ## Implementation
 
+From the instructions we already in Lab 4, the additional instructions needed were a shift to implement the light sequence and jump to implement the subroutine. The process for implementing these is outlined below: 
+
 ### Data Memory - Riya
 As we had not created a Data Memory as an extension in Lab 4, it was added as a task for the coursework. When trying to implement it I began by looking at the RISC-V diagram given in lectures to see the input and output signals driving the Data Memory Module:
 
@@ -311,7 +317,7 @@ In order to test the F1 light sequence cpu, we ran the machine code (shown in ab
 
 <img width="769" alt="Screenshot 2022-12-14 at 17 21 01" src="https://user-images.githubusercontent.com/115703122/207663885-e1881895-b64a-4a49-9de8-7a6443d2d550.png">
 
-## Reference Program - Bhavya and Riya
+## Additional implementations for Reference Program - Bhavya and Riya
 
 Since the reference code included Load Byte Unsigned and Store Byte instructions we needed to add these in since we had only implemented Load Word and Store Word earlier. 
 This meant that we needed to enable byte addressing within data memory as evidenced below. The main changes required were the width parameters within the module and setting the least significant byte of the register value equal to a specific byte instead of a word. In the case of load word, the changes made were to concatenate individual bytes to form a word.
@@ -323,6 +329,10 @@ Since the load byte was specified to be unsigned, this meant that it would need 
 ![image](https://user-images.githubusercontent.com/107200668/207979090-312dd46f-18cc-422f-98a1-9d29ee4881fa.png)
 
 The explanation regarding design choices on selecting a specific byte from the instruction format and selecting bytes to form a word are outlined in  the individual  self-reflection account in README_Bhavya.md file. 
+
+Created a small section of machine code to test individual instructions: 
+
+GtkWave outputs: 
 
 Implementing Add instruction:
 
@@ -371,6 +381,8 @@ There were no problematic errors when we test the pipeline implementation, nearl
 To avoid pipelining hazard, instead of adding hazard unit, we chose to add NOP instructions to ensure that register values have already be written back to register file, and the next instruction has been decided (in **Branch** situation). This is shown in detail in **Machine Code Explaination** previously.
 
 ## Pipelining Debugging and Combining with Reference Code - Riya and Bhavya 
+
+During debugging we noticed whilst analysing gtkwave that further NOPs would be required; thus we made a slight change to the machine code outlined at the start to have 5 NOPs between every instruction rather than 2 shown below. 
 
 Final Cpu Diagram:
 
