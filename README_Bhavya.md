@@ -1,5 +1,5 @@
 ## Individual account + reflections - Bhavya Sharma
-##Design Choices
+## Design Choices
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Reference Program Instructions (LBU + SB):
