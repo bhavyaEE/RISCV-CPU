@@ -1,9 +1,9 @@
 ## Individual account + reflections - Bhavya Sharma
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Design Choices
-
-## Reference Program Instructions (LBU + SB):
+## Design Choices:
+## 1. F1 Program Instructions (Jump)
+## 2. Reference Program Instructions (LBU + SB)
 
 The diagram below outlines how I visualised the memory to be split up into bytes from a word. Once we realised that the only way to implement these instructions was to make the data memory byte addressed, it was quite clear that the specific byte to be addressed would simply be the value of the Immediate + RS1 in the case of an LBU. 
 
@@ -38,3 +38,15 @@ The final input regarding concatenation lies in load word; it begins from the of
 ![image](https://user-images.githubusercontent.com/107200668/207979469-b00fde20-1a0d-4ed4-b4dc-08f12ce2dd11.png)
 
 Illustrated through outputs on gtkwave: 
+
+
+## 3. Pipelining F1 Program (Jump Logic Changes)
+Other general stuff for final conclusion: 
+- Hardwired x0 register
+- Control unit and sign extend fixing
+- Creating top level unit in Lab4 - diagram
+- Testbench requirements changing per task 
+- general learning outcomes per task: F1 and Reference and pipelining
+- Testing + debugging improvements - modular testing
+- new lines, bit width, consistency in naming, following signals along - checking on gtkwave, understanding which modules are involved and trigger signals
+- what would be done differently/more time + git commits reference
