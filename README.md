@@ -66,7 +66,7 @@ Bhavya Sharma; 02022359; bs921@ic.ac.uk; bhavyaEE (also committed with username 
 
 Riya Chard: 01855457; rc920@ic.ac.uk; Riya050302; 115703122+Riya050302@users.noreply.github.com 
 
-Zhouxin(Isabel) Zheng; 02027930; zz3521@ic.ac.uk; zzx04
+Zhouxin(Isabel) Zheng; 02027930; zz3521@ic.ac.uk; zzx04; 106155056+zzx04@users.noreply.github.com
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
